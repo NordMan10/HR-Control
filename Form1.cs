@@ -16,8 +16,8 @@ namespace HR_Control
     {
         public Form1()
         {
-            this.testDBDataSet.DataSetName = "testDBDataSet";
-            this.testDBDataSet.SchemaSerializationMode = SchemaSerializationMode.IncludeSchema;
+            testDBDataSet.DataSetName = "testDBDataSet";
+            testDBDataSet.SchemaSerializationMode = SchemaSerializationMode.IncludeSchema;
 
             InitializeComponent();
 
@@ -47,15 +47,12 @@ namespace HR_Control
 
         private testDBDataSetTableAdapters.PositionsTableAdapter positionsTableAdapter =
             new testDBDataSetTableAdapters.PositionsTableAdapter();
-        //private DataTable positionsTable = new DataTable();
         
         private testDBDataSetTableAdapters.UnitsTableAdapter unitsTableAdapter = 
             new testDBDataSetTableAdapters.UnitsTableAdapter();
-        //private DataTable unitsTable = new DataTable();
 
         private testDBDataSetTableAdapters.StaffTableAdapter staffTableAdapter = 
             new testDBDataSetTableAdapters.StaffTableAdapter();
-        //private DataTable staffersTable = new DataTable();
 
         private testDBDataSetTableAdapters.GetArchiveStaffDataTableAdapter GetArchiveStaffDataViewTableAdapter =
             new testDBDataSetTableAdapters.GetArchiveStaffDataTableAdapter();
@@ -68,6 +65,23 @@ namespace HR_Control
 
 
         private Panel prevOpenedPanel;
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+            // TODO: This line of code loads data into the 'testDBDataSet1.Units' table. You can move, or remove it, as needed.
+            this.unitsTableAdapter1.Fill(this.testDBDataSet1.Units);
+        }
+
+        private void unitsBindingSource1BindingNavigatorSaveItem_Click(object sender, EventArgs e)
+        {
+            this.Validate();
+            this.unitsBindingSource1.EndEdit();
+            this.tableAdapterManager.UpdateAll(this.testDBDataSet1);
+
+        }
+
+        // Tables initializers
+        #region Tables initializers
 
         private void InitStaffTable()
         {
@@ -102,10 +116,6 @@ namespace HR_Control
             unitsBindingSource.DataMember = "Units";
             unitsBindingSource.DataSource = testDBDataSet;
 
-            //var cmd = testDBConnection.CreateCommand();
-            //cmd.Connection = testDBConnection;
-            //cmd.CommandText = "select * from Units";
-            //unitsTableAdapter = new SqlDataAdapter(cmd);
             unitsTableAdapter.Fill(this.testDBDataSet.Units);
 
             unitsDataGridView.DataSource = unitsBindingSource;
@@ -137,11 +147,14 @@ namespace HR_Control
         {
             Staff_Units_PositionsTableAdapter.ClearBeforeFill = true;
 
-            //staffWithPositionAndUnitBindingSource.DataMember = "GetStaffWithPositionAndUnit";
-            //staffWithPositionAndUnitBindingSource.DataSource = testDBDataSet;
-
             Staff_Units_PositionsTableAdapter.Fill(testDBDataSet.Staff_Units_Positions);
         }
+
+        #endregion 
+
+
+        // DataGridViews Configs
+        #region DataGridViews Configs
 
         private void Configure_Staff_DataGridView()
         {
@@ -188,22 +201,6 @@ namespace HR_Control
         private void Configure_TransferPanel_DataGridView()
         {
             transferStafferPanel_dataGridView.DataSource = staffWithPositionAndUnitBindingSource;
-            //transferStafferPanel_dataGridView.Columns["FirstName"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-            //transferStafferPanel_dataGridView.Columns["FirstName"].HeaderText = "Имя";
-            //transferStafferPanel_dataGridView.Columns["SecondName"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-            //transferStafferPanel_dataGridView.Columns["SecondName"].HeaderText = "Фамилия";
-            //transferStafferPanel_dataGridView.Columns["Patronymic"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-            //transferStafferPanel_dataGridView.Columns["Patronymic"].HeaderText = "Отчество";
-            //transferStafferPanel_dataGridView.Columns["PassportSeries"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-            //transferStafferPanel_dataGridView.Columns["PassportSeries"].HeaderText = "Серия паспорта";
-            //transferStafferPanel_dataGridView.Columns["PassportNumber"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-            //transferStafferPanel_dataGridView.Columns["PassportNumber"].HeaderText = "Номер паспорта";
-            //transferStafferPanel_dataGridView.Columns["HireDate"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-            //transferStafferPanel_dataGridView.Columns["HireDate"].HeaderText = "Дата приема";
-            //transferStafferPanel_dataGridView.Columns["UnitName"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-            //transferStafferPanel_dataGridView.Columns["UnitName"].HeaderText = "Отдел";
-            //transferStafferPanel_dataGridView.Columns["PositionName"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-            //transferStafferPanel_dataGridView.Columns["PositionName"].HeaderText = "Должность";
         }
 
         private void Configure_StaffArchivePanel_DataGridView()
@@ -231,6 +228,8 @@ namespace HR_Control
             staffArchive_dataGridView.Columns["PositionName"].HeaderText = "Должность";
         }
 
+        #endregion
+
 
         private void AnyBackButtonHandler()
         {
@@ -238,14 +237,6 @@ namespace HR_Control
             main_panel.Visible = false;
             home_panel.Visible = true;
             prevOpenedPanel = home_panel;
-        }
-
-        private void startWork_button_Click(object sender, EventArgs e)
-        {
-            prevOpenedPanel.Visible = false;
-            main_panel.Visible = true;
-            addStaffer_panel.Visible = true;
-            prevOpenedPanel = addStaffer_panel;
         }
 
         #region Back and Ready buttons handlers
@@ -282,6 +273,18 @@ namespace HR_Control
 
         #endregion
 
+
+        // Buttons click handlers
+        #region Buttons click handlers
+
+        private void startWork_button_Click(object sender, EventArgs e)
+        {
+            prevOpenedPanel.Visible = false;
+            main_panel.Visible = true;
+            addStaffer_panel.Visible = true;
+            prevOpenedPanel = addStaffer_panel;
+        }
+
         private void addStaffer_button_Click_1(object sender, EventArgs e)
         {
             using (SqlCommand cmdStaff = new SqlCommand())
@@ -314,62 +317,6 @@ namespace HR_Control
                 addStaffer_saved_label.Visible = true;
                 myThread.Start();
             }
-        }
-
-        private void Set_Staff_Command(SqlCommand cmdStaff)
-        {
-            cmdStaff.Connection = testDBConnection;
-
-            cmdStaff.Parameters.Add("@firstName", SqlDbType.NVarChar, 30).Value = addStafferPanel_firstName_textBox.Text;
-            cmdStaff.Parameters.Add("@secondName", SqlDbType.NVarChar, 30).Value = addStafferPanel_secondName_textBox.Text;
-            cmdStaff.Parameters.Add("@patronymic", SqlDbType.NVarChar, 30).Value = addStafferPanel_patronymic_textBox.Text;
-            cmdStaff.Parameters.Add("@passportSeries", SqlDbType.NVarChar, 4).Value = addStafferPanel_passportSeries_textBox.Text;
-            cmdStaff.Parameters.Add("@passportNumber", SqlDbType.NVarChar, 6).Value = addStafferPanel_passportNumber_textBox.Text;
-            cmdStaff.Parameters.Add("@birthDate", SqlDbType.Date).Value = addStafferPanel_birthDate_dateTimePicker.Value.Date;
-            cmdStaff.Parameters.Add("@education", SqlDbType.NVarChar, 50).Value = addStafferPanel_education_textBox.Text;
-            cmdStaff.Parameters.Add("@hireDate", SqlDbType.Date).Value = addStafferPanel_hireDate_dateTimePicker.Value.Date;
-
-            cmdStaff.CommandText = "insert into Staff " +
-                "(FirstName, SecondName, Patronymic, PassportSeries, PassportNumber, BirthDate, Education, HireDate) " +
-                "values (@firstName, @secondName, @patronymic, @passportSeries," +
-                "@passportNumber, @birthDate, @education, @hireDate)";
-        }
-
-        private void Set_Staff_Units_Positions_Command(SqlCommand cmdStaff_Units_Positions)
-        {
-            cmdStaff_Units_Positions.Connection = testDBConnection;
-
-            cmdStaff_Units_Positions.Parameters.Add("@passportSeries", SqlDbType.NVarChar, 4).Value =
-                    addStafferPanel_passportSeries_textBox.Text;
-            cmdStaff_Units_Positions.Parameters.Add("@passportNumber", SqlDbType.NVarChar, 6).Value =
-                addStafferPanel_passportNumber_textBox.Text;
-            cmdStaff_Units_Positions.Parameters.Add("@unitID", SqlDbType.Int).Value =
-                int.Parse(addStafferPanel_unit_comboBox.SelectedValue.ToString());
-            cmdStaff_Units_Positions.Parameters.Add("@positionID", SqlDbType.Int).Value =
-                int.Parse(addStafferPanel_position_comboBox.SelectedValue.ToString());
-
-            cmdStaff_Units_Positions.CommandText = "insert into Staff_Units_Positions" +
-                "(PassportSeries, PassportNumber, UnitID, PositionID)" +
-                "values (@passportSeries, @passportNumber, @unitID, @positionID)";
-        }
-
-        private void ClearAddStafferTextBoxes()
-        {
-            addStafferPanel_firstName_textBox.Clear();
-            addStafferPanel_secondName_textBox.Clear();
-            addStafferPanel_patronymic_textBox.Clear();
-            addStafferPanel_passportSeries_textBox.Clear();
-            addStafferPanel_passportNumber_textBox.Clear();
-            addStafferPanel_education_textBox.Clear();
-        }
-
-        private void ClearFireStafferTextBoxes()
-        {
-            firePanel_firstName_textBox.Clear();
-            firePanel_secondName_textBox.Clear();
-            firePanel_patronymic_textBox.Clear();
-            firePanel_passportSeries_textBox.Clear();
-            firePanel_passportNumber_textBox.Clear();
         }
 
         private void addPositionPanel_add_button_Click(object sender, EventArgs e)
@@ -519,22 +466,71 @@ namespace HR_Control
             }
         }
 
-        private void Form1_Load(object sender, EventArgs e)
+        private void Set_Staff_Command(SqlCommand cmdStaff)
         {
-            // TODO: This line of code loads data into the 'testDBDataSet1.Units' table. You can move, or remove it, as needed.
-            this.unitsTableAdapter1.Fill(this.testDBDataSet1.Units);
-            // TODO: This line of code loads data into the 'testDBDataSet1.Positions' table. You can move, or remove it, as needed.
-            //this.positionsTableAdapter.Fill(this.testDBDataSet.Positions);
+            cmdStaff.Connection = testDBConnection;
 
+            cmdStaff.Parameters.Add("@firstName", SqlDbType.NVarChar, 30).Value = addStafferPanel_firstName_textBox.Text;
+            cmdStaff.Parameters.Add("@secondName", SqlDbType.NVarChar, 30).Value = addStafferPanel_secondName_textBox.Text;
+            cmdStaff.Parameters.Add("@patronymic", SqlDbType.NVarChar, 30).Value = addStafferPanel_patronymic_textBox.Text;
+            cmdStaff.Parameters.Add("@passportSeries", SqlDbType.NVarChar, 4).Value = addStafferPanel_passportSeries_textBox.Text;
+            cmdStaff.Parameters.Add("@passportNumber", SqlDbType.NVarChar, 6).Value = addStafferPanel_passportNumber_textBox.Text;
+            cmdStaff.Parameters.Add("@birthDate", SqlDbType.Date).Value = addStafferPanel_birthDate_dateTimePicker.Value.Date;
+            cmdStaff.Parameters.Add("@education", SqlDbType.NVarChar, 50).Value = addStafferPanel_education_textBox.Text;
+            cmdStaff.Parameters.Add("@hireDate", SqlDbType.Date).Value = addStafferPanel_hireDate_dateTimePicker.Value.Date;
+
+            cmdStaff.CommandText = "insert into Staff " +
+                "(FirstName, SecondName, Patronymic, PassportSeries, PassportNumber, BirthDate, Education, HireDate) " +
+                "values (@firstName, @secondName, @patronymic, @passportSeries," +
+                "@passportNumber, @birthDate, @education, @hireDate)";
         }
 
-        private void unitsBindingSource1BindingNavigatorSaveItem_Click(object sender, EventArgs e)
+        private void Set_Staff_Units_Positions_Command(SqlCommand cmdStaff_Units_Positions)
         {
-            this.Validate();
-            this.unitsBindingSource1.EndEdit();
-            this.tableAdapterManager.UpdateAll(this.testDBDataSet1);
+            cmdStaff_Units_Positions.Connection = testDBConnection;
 
+            cmdStaff_Units_Positions.Parameters.Add("@passportSeries", SqlDbType.NVarChar, 4).Value =
+                    addStafferPanel_passportSeries_textBox.Text;
+            cmdStaff_Units_Positions.Parameters.Add("@passportNumber", SqlDbType.NVarChar, 6).Value =
+                addStafferPanel_passportNumber_textBox.Text;
+            cmdStaff_Units_Positions.Parameters.Add("@unitID", SqlDbType.Int).Value =
+                int.Parse(addStafferPanel_unit_comboBox.SelectedValue.ToString());
+            cmdStaff_Units_Positions.Parameters.Add("@positionID", SqlDbType.Int).Value =
+                int.Parse(addStafferPanel_position_comboBox.SelectedValue.ToString());
+
+            cmdStaff_Units_Positions.CommandText = "insert into Staff_Units_Positions" +
+                "(PassportSeries, PassportNumber, UnitID, PositionID)" +
+                "values (@passportSeries, @passportNumber, @unitID, @positionID)";
         }
+
+        #endregion
+
+        // Clear TextBoxes code
+        #region Clear TextBoxes code
+
+        private void ClearAddStafferTextBoxes()
+        {
+            addStafferPanel_firstName_textBox.Clear();
+            addStafferPanel_secondName_textBox.Clear();
+            addStafferPanel_patronymic_textBox.Clear();
+            addStafferPanel_passportSeries_textBox.Clear();
+            addStafferPanel_passportNumber_textBox.Clear();
+            addStafferPanel_education_textBox.Clear();
+        }
+
+        private void ClearFireStafferTextBoxes()
+        {
+            firePanel_firstName_textBox.Clear();
+            firePanel_secondName_textBox.Clear();
+            firePanel_patronymic_textBox.Clear();
+            firePanel_passportSeries_textBox.Clear();
+            firePanel_passportNumber_textBox.Clear();
+        }
+
+        #endregion
+
+        // Search rows in tables
+        #region Search rows in tables code
 
         private Thread staffTableSearchThread;
         private Thread staffWith_P_and_U_TableSearchThread;
@@ -724,6 +720,10 @@ namespace HR_Control
             staffWith_P_and_U_TableSearchThread.Start();
         }
 
+        #endregion
+
+
+        // ToolStripMenu click handlers
         #region ToolStripMenu click handlers
 
         private void addStaffer_ToolStripMenuItem_Click(object sender, EventArgs e)
@@ -766,6 +766,10 @@ namespace HR_Control
 
         #endregion
 
+
+        // DataGridViews SelectionChanged handlers
+        #region DataGridViews SelectionChanged handlers
+
         private void FirePanel_dataGridView_SelectionChanged(object sender, EventArgs e)
         {
             if (firePanel_dataGridView.SelectedCells.Count > 0 && firePanel_fillTextBoxes_checkcBox.Checked)
@@ -805,6 +809,12 @@ namespace HR_Control
             }
         }
 
+        #endregion
+
+
+        // CheckBoxes handlers
+        #region CheckBoxes handlers
+
         private void FirePanel_fillTextBoxes_checkcBox_CheckedChanged(object sender, EventArgs e)
         {
             if (firePanel_fillTextBoxes_checkcBox.Checked)
@@ -839,6 +849,10 @@ namespace HR_Control
             }
         }
 
+        #endregion
+
+
+        // TextBoxes TextChanged Handlers
         #region TextBoxes TextChanged Handlers
 
         private void secondName_textBox_TextChanged(object sender, EventArgs e)
@@ -917,7 +931,5 @@ namespace HR_Control
         }
 
         #endregion
-
-        
     }
 }

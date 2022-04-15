@@ -758,11 +758,11 @@
             // unitsDataGridView
             // 
             this.unitsDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.unitsDataGridView.Location = new System.Drawing.Point(564, 99);
+            this.unitsDataGridView.Location = new System.Drawing.Point(34, 218);
             this.unitsDataGridView.Name = "unitsDataGridView";
             this.unitsDataGridView.RowHeadersWidth = 51;
             this.unitsDataGridView.RowTemplate.Height = 24;
-            this.unitsDataGridView.Size = new System.Drawing.Size(324, 437);
+            this.unitsDataGridView.Size = new System.Drawing.Size(884, 328);
             this.unitsDataGridView.TabIndex = 10;
             // 
             // addUnitPanel_saved_label
@@ -861,11 +861,11 @@
             // positionsDataGridView
             // 
             this.positionsDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.positionsDataGridView.Location = new System.Drawing.Point(449, 102);
+            this.positionsDataGridView.Location = new System.Drawing.Point(19, 293);
             this.positionsDataGridView.Name = "positionsDataGridView";
             this.positionsDataGridView.RowHeadersWidth = 51;
             this.positionsDataGridView.RowTemplate.Height = 24;
-            this.positionsDataGridView.Size = new System.Drawing.Size(451, 396);
+            this.positionsDataGridView.Size = new System.Drawing.Size(924, 251);
             this.positionsDataGridView.TabIndex = 12;
             // 
             // addPositionPanel_saved_label
@@ -1012,7 +1012,7 @@
             this.staffArchiveToolStripMenuItem});
             this.mainPanel_menuStrip.Location = new System.Drawing.Point(0, 0);
             this.mainPanel_menuStrip.Name = "mainPanel_menuStrip";
-            this.mainPanel_menuStrip.Size = new System.Drawing.Size(964, 28);
+            this.mainPanel_menuStrip.Size = new System.Drawing.Size(964, 30);
             this.mainPanel_menuStrip.TabIndex = 1;
             this.mainPanel_menuStrip.Text = "menuStrip1";
             // 
@@ -1023,7 +1023,7 @@
             this.addUnit_ToolStripMenuItem,
             this.addPosition_ToolStripMenuItem});
             this.add_ToolStripMenuItem.Name = "add_ToolStripMenuItem";
-            this.add_ToolStripMenuItem.Size = new System.Drawing.Size(90, 24);
+            this.add_ToolStripMenuItem.Size = new System.Drawing.Size(90, 26);
             this.add_ToolStripMenuItem.Text = "Добавить";
             // 
             // addStaffer_ToolStripMenuItem
@@ -1050,21 +1050,21 @@
             // fireStaffer_ToolStripMenuItem
             // 
             this.fireStaffer_ToolStripMenuItem.Name = "fireStaffer_ToolStripMenuItem";
-            this.fireStaffer_ToolStripMenuItem.Size = new System.Drawing.Size(108, 24);
+            this.fireStaffer_ToolStripMenuItem.Size = new System.Drawing.Size(108, 26);
             this.fireStaffer_ToolStripMenuItem.Text = "Увольнение";
             this.fireStaffer_ToolStripMenuItem.Click += new System.EventHandler(this.fireStaffer_ToolStripMenuItem_Click);
             // 
             // transferStaffer_ToolStripMenuItem
             // 
             this.transferStaffer_ToolStripMenuItem.Name = "transferStaffer_ToolStripMenuItem";
-            this.transferStaffer_ToolStripMenuItem.Size = new System.Drawing.Size(95, 24);
+            this.transferStaffer_ToolStripMenuItem.Size = new System.Drawing.Size(95, 26);
             this.transferStaffer_ToolStripMenuItem.Text = "Переводы";
             this.transferStaffer_ToolStripMenuItem.Click += new System.EventHandler(this.transferStaffer_ToolStripMenuItem_Click);
             // 
             // staffArchiveToolStripMenuItem
             // 
             this.staffArchiveToolStripMenuItem.Name = "staffArchiveToolStripMenuItem";
-            this.staffArchiveToolStripMenuItem.Size = new System.Drawing.Size(158, 24);
+            this.staffArchiveToolStripMenuItem.Size = new System.Drawing.Size(158, 26);
             this.staffArchiveToolStripMenuItem.Text = "Архив сотрудников";
             this.staffArchiveToolStripMenuItem.Click += new System.EventHandler(this.staffArchiveToolStripMenuItem_Click);
             // 
@@ -1092,16 +1092,16 @@
             this.transferStafferPanel_position_comboBox.DataSource = this.positionsBindingSource;
             this.transferStafferPanel_position_comboBox.DisplayMember = "Name";
             this.transferStafferPanel_position_comboBox.FormattingEnabled = true;
-            this.transferStafferPanel_position_comboBox.Location = new System.Drawing.Point(512, 223);
+            this.transferStafferPanel_position_comboBox.Location = new System.Drawing.Point(541, 219);
             this.transferStafferPanel_position_comboBox.Name = "transferStafferPanel_position_comboBox";
-            this.transferStafferPanel_position_comboBox.Size = new System.Drawing.Size(121, 24);
+            this.transferStafferPanel_position_comboBox.Size = new System.Drawing.Size(318, 24);
             this.transferStafferPanel_position_comboBox.TabIndex = 13;
             this.transferStafferPanel_position_comboBox.ValueMember = "ID";
             // 
             // transferStafferPanel_position_label
             // 
             this.transferStafferPanel_position_label.AutoSize = true;
-            this.transferStafferPanel_position_label.Location = new System.Drawing.Point(413, 226);
+            this.transferStafferPanel_position_label.Location = new System.Drawing.Point(442, 222);
             this.transferStafferPanel_position_label.Name = "transferStafferPanel_position_label";
             this.transferStafferPanel_position_label.Size = new System.Drawing.Size(81, 16);
             this.transferStafferPanel_position_label.TabIndex = 4;
