@@ -121,23 +121,25 @@
             this.transferStaffer_ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.staffArchiveToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.transferStafferPanel = new System.Windows.Forms.Panel();
-            this.checkBox1 = new System.Windows.Forms.CheckBox();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.transferStafferPanel_position_comboBox = new System.Windows.Forms.ComboBox();
+            this.transferStafferPanel_position_label = new System.Windows.Forms.Label();
+            this.transferStafferPanel_fillTextBoxes_checkBox = new System.Windows.Forms.CheckBox();
+            this.transferStafferPanel_dataGridView = new System.Windows.Forms.DataGridView();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.transferStafferPanel_passportNumber_textBox = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.transferStafferPanel_passportSeries_textBox = new System.Windows.Forms.TextBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.transferStafferPanel_patronymic_textBox = new System.Windows.Forms.TextBox();
+            this.transferStafferPanel_firstName_textBox = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
-            this.textBox5 = new System.Windows.Forms.TextBox();
-            this.label9 = new System.Windows.Forms.Label();
+            this.transferStafferPanel_secondName_textBox = new System.Windows.Forms.TextBox();
+            this.transferStafferPanel_saved_label = new System.Windows.Forms.Label();
             this.transferStafferPanel_header_label = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
+            this.transferStafferPanel_transfer_button = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.staffArchive_panel = new System.Windows.Forms.Panel();
@@ -157,10 +159,9 @@
             this.staffArchivePanel_header_label = new System.Windows.Forms.Label();
             this.button6 = new System.Windows.Forms.Button();
             this.unitsBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
-
             this.staffBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.staffArchiveBindingSource = new System.Windows.Forms.BindingSource(this.components);
-
+            this.staffWithPositionAndUnitBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.unitsTableAdapter1 = new HR_Control.testDBDataSetTableAdapters.UnitsTableAdapter();
             this.tableAdapterManager = new HR_Control.testDBDataSetTableAdapters.TableAdapterManager();
             this.home_panel.SuspendLayout();
@@ -187,7 +188,7 @@
             this.main_panel.SuspendLayout();
             this.mainPanel_menuStrip.SuspendLayout();
             this.transferStafferPanel.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.transferStafferPanel_dataGridView)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.staffArchive_panel.SuspendLayout();
@@ -196,6 +197,8 @@
             this.groupBox4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.unitsBindingSource1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.staffBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.staffArchiveBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.staffWithPositionAndUnitBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // startWork_button
@@ -987,12 +990,12 @@
             // main_panel
             // 
             this.main_panel.Controls.Add(this.mainPanel_menuStrip);
-            this.main_panel.Controls.Add(this.staffArchive_panel);
             this.main_panel.Controls.Add(this.transferStafferPanel);
             this.main_panel.Controls.Add(this.fireStaffer_panel);
             this.main_panel.Controls.Add(this.addStaffer_panel);
             this.main_panel.Controls.Add(this.addPosition_panel);
             this.main_panel.Controls.Add(this.addUnit_panel);
+            this.main_panel.Controls.Add(this.staffArchive_panel);
             this.main_panel.Location = new System.Drawing.Point(6, 6);
             this.main_panel.Name = "main_panel";
             this.main_panel.Size = new System.Drawing.Size(964, 694);
@@ -1067,13 +1070,15 @@
             // 
             // transferStafferPanel
             // 
-            this.transferStafferPanel.Controls.Add(this.checkBox1);
-            this.transferStafferPanel.Controls.Add(this.dataGridView1);
+            this.transferStafferPanel.Controls.Add(this.transferStafferPanel_position_comboBox);
+            this.transferStafferPanel.Controls.Add(this.transferStafferPanel_position_label);
+            this.transferStafferPanel.Controls.Add(this.transferStafferPanel_fillTextBoxes_checkBox);
+            this.transferStafferPanel.Controls.Add(this.transferStafferPanel_dataGridView);
             this.transferStafferPanel.Controls.Add(this.groupBox1);
             this.transferStafferPanel.Controls.Add(this.groupBox2);
-            this.transferStafferPanel.Controls.Add(this.label9);
+            this.transferStafferPanel.Controls.Add(this.transferStafferPanel_saved_label);
             this.transferStafferPanel.Controls.Add(this.transferStafferPanel_header_label);
-            this.transferStafferPanel.Controls.Add(this.button1);
+            this.transferStafferPanel.Controls.Add(this.transferStafferPanel_transfer_button);
             this.transferStafferPanel.Controls.Add(this.button2);
             this.transferStafferPanel.Controls.Add(this.button3);
             this.transferStafferPanel.Location = new System.Drawing.Point(3, 4);
@@ -1082,32 +1087,54 @@
             this.transferStafferPanel.TabIndex = 19;
             this.transferStafferPanel.Visible = false;
             // 
-            // checkBox1
+            // transferStafferPanel_position_comboBox
             // 
-            this.checkBox1.AutoSize = true;
-            this.checkBox1.Location = new System.Drawing.Point(445, 235);
-            this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(329, 20);
-            this.checkBox1.TabIndex = 12;
-            this.checkBox1.Text = "Заполнять поля при выборе строки в таблице";
-            this.checkBox1.UseVisualStyleBackColor = true;
+            this.transferStafferPanel_position_comboBox.DataSource = this.positionsBindingSource;
+            this.transferStafferPanel_position_comboBox.DisplayMember = "Name";
+            this.transferStafferPanel_position_comboBox.FormattingEnabled = true;
+            this.transferStafferPanel_position_comboBox.Location = new System.Drawing.Point(512, 223);
+            this.transferStafferPanel_position_comboBox.Name = "transferStafferPanel_position_comboBox";
+            this.transferStafferPanel_position_comboBox.Size = new System.Drawing.Size(121, 24);
+            this.transferStafferPanel_position_comboBox.TabIndex = 13;
+            this.transferStafferPanel_position_comboBox.ValueMember = "ID";
             // 
-            // dataGridView1
+            // transferStafferPanel_position_label
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(43, 322);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowHeadersWidth = 51;
-            this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.Size = new System.Drawing.Size(881, 271);
-            this.dataGridView1.TabIndex = 11;
+            this.transferStafferPanel_position_label.AutoSize = true;
+            this.transferStafferPanel_position_label.Location = new System.Drawing.Point(413, 226);
+            this.transferStafferPanel_position_label.Name = "transferStafferPanel_position_label";
+            this.transferStafferPanel_position_label.Size = new System.Drawing.Size(81, 16);
+            this.transferStafferPanel_position_label.TabIndex = 4;
+            this.transferStafferPanel_position_label.Text = "Должность:";
+            // 
+            // transferStafferPanel_fillTextBoxes_checkBox
+            // 
+            this.transferStafferPanel_fillTextBoxes_checkBox.AutoSize = true;
+            this.transferStafferPanel_fillTextBoxes_checkBox.Location = new System.Drawing.Point(439, 266);
+            this.transferStafferPanel_fillTextBoxes_checkBox.Name = "transferStafferPanel_fillTextBoxes_checkBox";
+            this.transferStafferPanel_fillTextBoxes_checkBox.Size = new System.Drawing.Size(329, 20);
+            this.transferStafferPanel_fillTextBoxes_checkBox.TabIndex = 12;
+            this.transferStafferPanel_fillTextBoxes_checkBox.Text = "Заполнять поля при выборе строки в таблице";
+            this.transferStafferPanel_fillTextBoxes_checkBox.UseVisualStyleBackColor = true;
+            this.transferStafferPanel_fillTextBoxes_checkBox.CheckedChanged += new System.EventHandler(this.transferStafferPanel_fillTextBoxes_checkBox_CheckedChanged);
+            // 
+            // transferStafferPanel_dataGridView
+            // 
+            this.transferStafferPanel_dataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.transferStafferPanel_dataGridView.Location = new System.Drawing.Point(43, 322);
+            this.transferStafferPanel_dataGridView.Name = "transferStafferPanel_dataGridView";
+            this.transferStafferPanel_dataGridView.RowHeadersWidth = 51;
+            this.transferStafferPanel_dataGridView.RowTemplate.Height = 24;
+            this.transferStafferPanel_dataGridView.Size = new System.Drawing.Size(881, 271);
+            this.transferStafferPanel_dataGridView.TabIndex = 11;
+            this.transferStafferPanel_dataGridView.SelectionChanged += new System.EventHandler(this.transferStafferPanel_dataGridView_SelectionChanged);
             // 
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.label1);
-            this.groupBox1.Controls.Add(this.textBox1);
+            this.groupBox1.Controls.Add(this.transferStafferPanel_passportNumber_textBox);
             this.groupBox1.Controls.Add(this.label3);
-            this.groupBox1.Controls.Add(this.textBox2);
+            this.groupBox1.Controls.Add(this.transferStafferPanel_passportSeries_textBox);
             this.groupBox1.Location = new System.Drawing.Point(418, 122);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(506, 68);
@@ -1124,12 +1151,13 @@
             this.label1.TabIndex = 2;
             this.label1.Text = "Номер:";
             // 
-            // textBox1
+            // transferStafferPanel_passportNumber_textBox
             // 
-            this.textBox1.Location = new System.Drawing.Point(299, 25);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(142, 22);
-            this.textBox1.TabIndex = 3;
+            this.transferStafferPanel_passportNumber_textBox.Location = new System.Drawing.Point(299, 25);
+            this.transferStafferPanel_passportNumber_textBox.Name = "transferStafferPanel_passportNumber_textBox";
+            this.transferStafferPanel_passportNumber_textBox.Size = new System.Drawing.Size(142, 22);
+            this.transferStafferPanel_passportNumber_textBox.TabIndex = 3;
+            this.transferStafferPanel_passportNumber_textBox.TextChanged += new System.EventHandler(this.transferStafferPanel_passportNumber_textBox_TextChanged);
             // 
             // label3
             // 
@@ -1140,21 +1168,22 @@
             this.label3.TabIndex = 0;
             this.label3.Text = "Серия:";
             // 
-            // textBox2
+            // transferStafferPanel_passportSeries_textBox
             // 
-            this.textBox2.Location = new System.Drawing.Point(94, 25);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(108, 22);
-            this.textBox2.TabIndex = 1;
+            this.transferStafferPanel_passportSeries_textBox.Location = new System.Drawing.Point(94, 25);
+            this.transferStafferPanel_passportSeries_textBox.Name = "transferStafferPanel_passportSeries_textBox";
+            this.transferStafferPanel_passportSeries_textBox.Size = new System.Drawing.Size(108, 22);
+            this.transferStafferPanel_passportSeries_textBox.TabIndex = 1;
+            this.transferStafferPanel_passportSeries_textBox.TextChanged += new System.EventHandler(this.transferStafferPanel_passportSeries_textBox_TextChanged);
             // 
             // groupBox2
             // 
             this.groupBox2.Controls.Add(this.label6);
             this.groupBox2.Controls.Add(this.label7);
-            this.groupBox2.Controls.Add(this.textBox3);
-            this.groupBox2.Controls.Add(this.textBox4);
+            this.groupBox2.Controls.Add(this.transferStafferPanel_patronymic_textBox);
+            this.groupBox2.Controls.Add(this.transferStafferPanel_firstName_textBox);
             this.groupBox2.Controls.Add(this.label8);
-            this.groupBox2.Controls.Add(this.textBox5);
+            this.groupBox2.Controls.Add(this.transferStafferPanel_secondName_textBox);
             this.groupBox2.Location = new System.Drawing.Point(43, 121);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(320, 165);
@@ -1180,19 +1209,21 @@
             this.label7.TabIndex = 2;
             this.label7.Text = "Имя:";
             // 
-            // textBox3
+            // transferStafferPanel_patronymic_textBox
             // 
-            this.textBox3.Location = new System.Drawing.Point(110, 112);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(180, 22);
-            this.textBox3.TabIndex = 7;
+            this.transferStafferPanel_patronymic_textBox.Location = new System.Drawing.Point(110, 112);
+            this.transferStafferPanel_patronymic_textBox.Name = "transferStafferPanel_patronymic_textBox";
+            this.transferStafferPanel_patronymic_textBox.Size = new System.Drawing.Size(180, 22);
+            this.transferStafferPanel_patronymic_textBox.TabIndex = 7;
+            this.transferStafferPanel_patronymic_textBox.TextChanged += new System.EventHandler(this.transferStafferPanel_patronymic_textBox_TextChanged);
             // 
-            // textBox4
+            // transferStafferPanel_firstName_textBox
             // 
-            this.textBox4.Location = new System.Drawing.Point(110, 69);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(180, 22);
-            this.textBox4.TabIndex = 3;
+            this.transferStafferPanel_firstName_textBox.Location = new System.Drawing.Point(110, 69);
+            this.transferStafferPanel_firstName_textBox.Name = "transferStafferPanel_firstName_textBox";
+            this.transferStafferPanel_firstName_textBox.Size = new System.Drawing.Size(180, 22);
+            this.transferStafferPanel_firstName_textBox.TabIndex = 3;
+            this.transferStafferPanel_firstName_textBox.TextChanged += new System.EventHandler(this.transferStafferPanel_firstName_textBox_TextChanged);
             // 
             // label8
             // 
@@ -1203,23 +1234,24 @@
             this.label8.TabIndex = 0;
             this.label8.Text = "Фамилия:";
             // 
-            // textBox5
+            // transferStafferPanel_secondName_textBox
             // 
-            this.textBox5.Location = new System.Drawing.Point(110, 25);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(180, 22);
-            this.textBox5.TabIndex = 1;
+            this.transferStafferPanel_secondName_textBox.Location = new System.Drawing.Point(110, 25);
+            this.transferStafferPanel_secondName_textBox.Name = "transferStafferPanel_secondName_textBox";
+            this.transferStafferPanel_secondName_textBox.Size = new System.Drawing.Size(180, 22);
+            this.transferStafferPanel_secondName_textBox.TabIndex = 1;
+            this.transferStafferPanel_secondName_textBox.TextChanged += new System.EventHandler(this.transferStafferPanel_secondName_textBox_TextChanged);
             // 
-            // label9
+            // transferStafferPanel_saved_label
             // 
-            this.label9.AutoSize = true;
-            this.label9.ForeColor = System.Drawing.Color.Green;
-            this.label9.Location = new System.Drawing.Point(464, 632);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(78, 16);
-            this.label9.TabIndex = 8;
-            this.label9.Text = "Сохранено";
-            this.label9.Visible = false;
+            this.transferStafferPanel_saved_label.AutoSize = true;
+            this.transferStafferPanel_saved_label.ForeColor = System.Drawing.Color.Green;
+            this.transferStafferPanel_saved_label.Location = new System.Drawing.Point(464, 632);
+            this.transferStafferPanel_saved_label.Name = "transferStafferPanel_saved_label";
+            this.transferStafferPanel_saved_label.Size = new System.Drawing.Size(78, 16);
+            this.transferStafferPanel_saved_label.TabIndex = 8;
+            this.transferStafferPanel_saved_label.Text = "Сохранено";
+            this.transferStafferPanel_saved_label.Visible = false;
             // 
             // transferStafferPanel_header_label
             // 
@@ -1231,14 +1263,15 @@
             this.transferStafferPanel_header_label.TabIndex = 7;
             this.transferStafferPanel_header_label.Text = "Перевод сотрудника";
             // 
-            // button1
+            // transferStafferPanel_transfer_button
             // 
-            this.button1.Location = new System.Drawing.Point(564, 626);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(110, 29);
-            this.button1.TabIndex = 6;
-            this.button1.Text = "Уволить";
-            this.button1.UseVisualStyleBackColor = true;
+            this.transferStafferPanel_transfer_button.Location = new System.Drawing.Point(564, 626);
+            this.transferStafferPanel_transfer_button.Name = "transferStafferPanel_transfer_button";
+            this.transferStafferPanel_transfer_button.Size = new System.Drawing.Size(110, 29);
+            this.transferStafferPanel_transfer_button.TabIndex = 6;
+            this.transferStafferPanel_transfer_button.Text = "Перевести";
+            this.transferStafferPanel_transfer_button.UseVisualStyleBackColor = true;
+            this.transferStafferPanel_transfer_button.Click += new System.EventHandler(this.transferStafferPanel_transfer_button_Click);
             // 
             // button2
             // 
@@ -1480,7 +1513,7 @@
             this.mainPanel_menuStrip.PerformLayout();
             this.transferStafferPanel.ResumeLayout(false);
             this.transferStafferPanel.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.transferStafferPanel_dataGridView)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
@@ -1494,6 +1527,8 @@
             this.groupBox4.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.unitsBindingSource1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.staffBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.staffArchiveBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.staffWithPositionAndUnitBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1581,6 +1616,7 @@
         private System.Windows.Forms.BindingSource unitsBindingSource;
         private System.Windows.Forms.BindingSource staffBindingSource;
         private System.Windows.Forms.BindingSource staffArchiveBindingSource;
+        private System.Windows.Forms.BindingSource staffWithPositionAndUnitBindingSource;
 
         private System.Windows.Forms.MenuStrip mainPanel_menuStrip;
         private System.Windows.Forms.ToolStripMenuItem add_ToolStripMenuItem;
@@ -1604,23 +1640,23 @@
         private System.Windows.Forms.DataGridView firePanel_dataGridView;
         private System.Windows.Forms.CheckBox firePanel_fillTextBoxes_checkcBox;
         private System.Windows.Forms.Panel transferStafferPanel;
-        private System.Windows.Forms.CheckBox checkBox1;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.CheckBox transferStafferPanel_fillTextBoxes_checkBox;
+        private System.Windows.Forms.DataGridView transferStafferPanel_dataGridView;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox transferStafferPanel_passportNumber_textBox;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox transferStafferPanel_passportSeries_textBox;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.TextBox textBox4;
+        private System.Windows.Forms.TextBox transferStafferPanel_patronymic_textBox;
+        private System.Windows.Forms.TextBox transferStafferPanel_firstName_textBox;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.TextBox textBox5;
-        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.TextBox transferStafferPanel_secondName_textBox;
+        private System.Windows.Forms.Label transferStafferPanel_saved_label;
         private System.Windows.Forms.Label transferStafferPanel_header_label;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button transferStafferPanel_transfer_button;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.ToolStripMenuItem staffArchiveToolStripMenuItem;
@@ -1640,6 +1676,8 @@
         private System.Windows.Forms.TextBox textBox10;
         private System.Windows.Forms.Label staffArchivePanel_header_label;
         private System.Windows.Forms.Button button6;
+        private System.Windows.Forms.ComboBox transferStafferPanel_position_comboBox;
+        private System.Windows.Forms.Label transferStafferPanel_position_label;
     }
 }
 

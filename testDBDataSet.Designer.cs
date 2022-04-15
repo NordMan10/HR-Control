@@ -38,6 +38,8 @@ namespace HR_Control {
         
         private GetArchiveStaffDataDataTable tableGetArchiveStaffData;
         
+        private GetStaffWithPositionAndUnitDataTable tableGetStaffWithPositionAndUnit;
+        
         private global::System.Data.DataRelation relationFK_with_Position_on_PositionID;
         
         private global::System.Data.DataRelation relationFK_with_Staff_on_PSeries_and_PNumber;
@@ -92,6 +94,9 @@ namespace HR_Control {
                 }
                 if ((ds.Tables["GetArchiveStaffData"] != null)) {
                     base.Tables.Add(new GetArchiveStaffDataDataTable(ds.Tables["GetArchiveStaffData"]));
+                }
+                if ((ds.Tables["GetStaffWithPositionAndUnit"] != null)) {
+                    base.Tables.Add(new GetStaffWithPositionAndUnitDataTable(ds.Tables["GetStaffWithPositionAndUnit"]));
                 }
                 this.DataSetName = ds.DataSetName;
                 this.Prefix = ds.Prefix;
@@ -183,6 +188,16 @@ namespace HR_Control {
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        [global::System.ComponentModel.Browsable(false)]
+        [global::System.ComponentModel.DesignerSerializationVisibility(global::System.ComponentModel.DesignerSerializationVisibility.Content)]
+        public GetStaffWithPositionAndUnitDataTable GetStaffWithPositionAndUnit {
+            get {
+                return this.tableGetStaffWithPositionAndUnit;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.BrowsableAttribute(true)]
         [global::System.ComponentModel.DesignerSerializationVisibilityAttribute(global::System.ComponentModel.DesignerSerializationVisibility.Visible)]
         public override global::System.Data.SchemaSerializationMode SchemaSerializationMode {
@@ -269,6 +284,9 @@ namespace HR_Control {
                 if ((ds.Tables["GetArchiveStaffData"] != null)) {
                     base.Tables.Add(new GetArchiveStaffDataDataTable(ds.Tables["GetArchiveStaffData"]));
                 }
+                if ((ds.Tables["GetStaffWithPositionAndUnit"] != null)) {
+                    base.Tables.Add(new GetStaffWithPositionAndUnitDataTable(ds.Tables["GetStaffWithPositionAndUnit"]));
+                }
                 this.DataSetName = ds.DataSetName;
                 this.Prefix = ds.Prefix;
                 this.Namespace = ds.Namespace;
@@ -344,6 +362,12 @@ namespace HR_Control {
                     this.tableGetArchiveStaffData.InitVars();
                 }
             }
+            this.tableGetStaffWithPositionAndUnit = ((GetStaffWithPositionAndUnitDataTable)(base.Tables["GetStaffWithPositionAndUnit"]));
+            if ((initTable == true)) {
+                if ((this.tableGetStaffWithPositionAndUnit != null)) {
+                    this.tableGetStaffWithPositionAndUnit.InitVars();
+                }
+            }
             this.relationFK_with_Position_on_PositionID = this.Relations["FK_with_Position_on_PositionID"];
             this.relationFK_with_Staff_on_PSeries_and_PNumber = this.Relations["FK_with_Staff_on_PSeries_and_PNumber"];
             this.relationFK_with_Units_on_UnitID = this.Relations["FK_with_Units_on_UnitID"];
@@ -371,6 +395,8 @@ namespace HR_Control {
             base.Tables.Add(this.tableStaff_Units_Positions_Archive);
             this.tableGetArchiveStaffData = new GetArchiveStaffDataDataTable();
             base.Tables.Add(this.tableGetArchiveStaffData);
+            this.tableGetStaffWithPositionAndUnit = new GetStaffWithPositionAndUnitDataTable();
+            base.Tables.Add(this.tableGetStaffWithPositionAndUnit);
             this.relationFK_with_Position_on_PositionID = new global::System.Data.DataRelation("FK_with_Position_on_PositionID", new global::System.Data.DataColumn[] {
                         this.tablePositions.IDColumn}, new global::System.Data.DataColumn[] {
                         this.tableStaff_Units_Positions.PositionIDColumn}, false);
@@ -426,6 +452,12 @@ namespace HR_Control {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         private bool ShouldSerializeGetArchiveStaffData() {
+            return false;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        private bool ShouldSerializeGetStaffWithPositionAndUnit() {
             return false;
         }
         
@@ -504,6 +536,9 @@ namespace HR_Control {
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         public delegate void GetArchiveStaffDataRowChangeEventHandler(object sender, GetArchiveStaffDataRowChangeEvent e);
+        
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        public delegate void GetStaffWithPositionAndUnitRowChangeEventHandler(object sender, GetStaffWithPositionAndUnitRowChangeEvent e);
         
         /// <summary>
         ///Represents the strongly named DataTable class.
@@ -2883,6 +2918,374 @@ namespace HR_Control {
         }
         
         /// <summary>
+        ///Represents the strongly named DataTable class.
+        ///</summary>
+        [global::System.Serializable()]
+        [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
+        public partial class GetStaffWithPositionAndUnitDataTable : global::System.Data.TypedTableBase<GetStaffWithPositionAndUnitRow> {
+            
+            private global::System.Data.DataColumn columnФамилия;
+            
+            private global::System.Data.DataColumn columnИмя;
+            
+            private global::System.Data.DataColumn columnОтчествов;
+            
+            private global::System.Data.DataColumn columnСерия_паспорта;
+            
+            private global::System.Data.DataColumn columnНомер_паспорта;
+            
+            private global::System.Data.DataColumn columnДата_приема;
+            
+            private global::System.Data.DataColumn columnОтдел;
+            
+            private global::System.Data.DataColumn columnДолжность;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public GetStaffWithPositionAndUnitDataTable() {
+                this.TableName = "GetStaffWithPositionAndUnit";
+                this.BeginInit();
+                this.InitClass();
+                this.EndInit();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            internal GetStaffWithPositionAndUnitDataTable(global::System.Data.DataTable table) {
+                this.TableName = table.TableName;
+                if ((table.CaseSensitive != table.DataSet.CaseSensitive)) {
+                    this.CaseSensitive = table.CaseSensitive;
+                }
+                if ((table.Locale.ToString() != table.DataSet.Locale.ToString())) {
+                    this.Locale = table.Locale;
+                }
+                if ((table.Namespace != table.DataSet.Namespace)) {
+                    this.Namespace = table.Namespace;
+                }
+                this.Prefix = table.Prefix;
+                this.MinimumCapacity = table.MinimumCapacity;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            protected GetStaffWithPositionAndUnitDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
+                    base(info, context) {
+                this.InitVars();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn ФамилияColumn {
+                get {
+                    return this.columnФамилия;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn ИмяColumn {
+                get {
+                    return this.columnИмя;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn ОтчествовColumn {
+                get {
+                    return this.columnОтчествов;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn Серия_паспортаColumn {
+                get {
+                    return this.columnСерия_паспорта;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn Номер_паспортаColumn {
+                get {
+                    return this.columnНомер_паспорта;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn Дата_приемаColumn {
+                get {
+                    return this.columnДата_приема;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn ОтделColumn {
+                get {
+                    return this.columnОтдел;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn ДолжностьColumn {
+                get {
+                    return this.columnДолжность;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            [global::System.ComponentModel.Browsable(false)]
+            public int Count {
+                get {
+                    return this.Rows.Count;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public GetStaffWithPositionAndUnitRow this[int index] {
+                get {
+                    return ((GetStaffWithPositionAndUnitRow)(this.Rows[index]));
+                }
+            }
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public event GetStaffWithPositionAndUnitRowChangeEventHandler GetStaffWithPositionAndUnitRowChanging;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public event GetStaffWithPositionAndUnitRowChangeEventHandler GetStaffWithPositionAndUnitRowChanged;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public event GetStaffWithPositionAndUnitRowChangeEventHandler GetStaffWithPositionAndUnitRowDeleting;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public event GetStaffWithPositionAndUnitRowChangeEventHandler GetStaffWithPositionAndUnitRowDeleted;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void AddGetStaffWithPositionAndUnitRow(GetStaffWithPositionAndUnitRow row) {
+                this.Rows.Add(row);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public GetStaffWithPositionAndUnitRow AddGetStaffWithPositionAndUnitRow(string Фамилия, string Имя, string Отчествов, string Серия_паспорта, string Номер_паспорта, System.DateTime Дата_приема, string Отдел, string Должность) {
+                GetStaffWithPositionAndUnitRow rowGetStaffWithPositionAndUnitRow = ((GetStaffWithPositionAndUnitRow)(this.NewRow()));
+                object[] columnValuesArray = new object[] {
+                        Фамилия,
+                        Имя,
+                        Отчествов,
+                        Серия_паспорта,
+                        Номер_паспорта,
+                        Дата_приема,
+                        Отдел,
+                        Должность};
+                rowGetStaffWithPositionAndUnitRow.ItemArray = columnValuesArray;
+                this.Rows.Add(rowGetStaffWithPositionAndUnitRow);
+                return rowGetStaffWithPositionAndUnitRow;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public GetStaffWithPositionAndUnitRow FindByСерия_паспортаНомер_паспорта(string Серия_паспорта, string Номер_паспорта) {
+                return ((GetStaffWithPositionAndUnitRow)(this.Rows.Find(new object[] {
+                            Серия_паспорта,
+                            Номер_паспорта})));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public override global::System.Data.DataTable Clone() {
+                GetStaffWithPositionAndUnitDataTable cln = ((GetStaffWithPositionAndUnitDataTable)(base.Clone()));
+                cln.InitVars();
+                return cln;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            protected override global::System.Data.DataTable CreateInstance() {
+                return new GetStaffWithPositionAndUnitDataTable();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            internal void InitVars() {
+                this.columnФамилия = base.Columns["Фамилия"];
+                this.columnИмя = base.Columns["Имя"];
+                this.columnОтчествов = base.Columns["Отчествов"];
+                this.columnСерия_паспорта = base.Columns["Серия паспорта"];
+                this.columnНомер_паспорта = base.Columns["Номер паспорта"];
+                this.columnДата_приема = base.Columns["Дата приема"];
+                this.columnОтдел = base.Columns["Отдел"];
+                this.columnДолжность = base.Columns["Должность"];
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            private void InitClass() {
+                this.columnФамилия = new global::System.Data.DataColumn("Фамилия", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnФамилия);
+                this.columnИмя = new global::System.Data.DataColumn("Имя", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnИмя);
+                this.columnОтчествов = new global::System.Data.DataColumn("Отчествов", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnОтчествов);
+                this.columnСерия_паспорта = new global::System.Data.DataColumn("Серия паспорта", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnСерия_паспорта);
+                this.columnНомер_паспорта = new global::System.Data.DataColumn("Номер паспорта", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnНомер_паспорта);
+                this.columnДата_приема = new global::System.Data.DataColumn("Дата приема", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnДата_приема);
+                this.columnОтдел = new global::System.Data.DataColumn("Отдел", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnОтдел);
+                this.columnДолжность = new global::System.Data.DataColumn("Должность", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnДолжность);
+                this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
+                                this.columnСерия_паспорта,
+                                this.columnНомер_паспорта}, true));
+                this.columnФамилия.AllowDBNull = false;
+                this.columnФамилия.MaxLength = 30;
+                this.columnИмя.AllowDBNull = false;
+                this.columnИмя.MaxLength = 30;
+                this.columnОтчествов.MaxLength = 30;
+                this.columnСерия_паспорта.AllowDBNull = false;
+                this.columnСерия_паспорта.MaxLength = 4;
+                this.columnНомер_паспорта.AllowDBNull = false;
+                this.columnНомер_паспорта.MaxLength = 6;
+                this.columnДата_приема.AllowDBNull = false;
+                this.columnОтдел.MaxLength = 800;
+                this.columnДолжность.MaxLength = 800;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public GetStaffWithPositionAndUnitRow NewGetStaffWithPositionAndUnitRow() {
+                return ((GetStaffWithPositionAndUnitRow)(this.NewRow()));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            protected override global::System.Data.DataRow NewRowFromBuilder(global::System.Data.DataRowBuilder builder) {
+                return new GetStaffWithPositionAndUnitRow(builder);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            protected override global::System.Type GetRowType() {
+                return typeof(GetStaffWithPositionAndUnitRow);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            protected override void OnRowChanged(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowChanged(e);
+                if ((this.GetStaffWithPositionAndUnitRowChanged != null)) {
+                    this.GetStaffWithPositionAndUnitRowChanged(this, new GetStaffWithPositionAndUnitRowChangeEvent(((GetStaffWithPositionAndUnitRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            protected override void OnRowChanging(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowChanging(e);
+                if ((this.GetStaffWithPositionAndUnitRowChanging != null)) {
+                    this.GetStaffWithPositionAndUnitRowChanging(this, new GetStaffWithPositionAndUnitRowChangeEvent(((GetStaffWithPositionAndUnitRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            protected override void OnRowDeleted(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowDeleted(e);
+                if ((this.GetStaffWithPositionAndUnitRowDeleted != null)) {
+                    this.GetStaffWithPositionAndUnitRowDeleted(this, new GetStaffWithPositionAndUnitRowChangeEvent(((GetStaffWithPositionAndUnitRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            protected override void OnRowDeleting(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowDeleting(e);
+                if ((this.GetStaffWithPositionAndUnitRowDeleting != null)) {
+                    this.GetStaffWithPositionAndUnitRowDeleting(this, new GetStaffWithPositionAndUnitRowChangeEvent(((GetStaffWithPositionAndUnitRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void RemoveGetStaffWithPositionAndUnitRow(GetStaffWithPositionAndUnitRow row) {
+                this.Rows.Remove(row);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedTableSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
+                global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
+                global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
+                testDBDataSet ds = new testDBDataSet();
+                global::System.Xml.Schema.XmlSchemaAny any1 = new global::System.Xml.Schema.XmlSchemaAny();
+                any1.Namespace = "http://www.w3.org/2001/XMLSchema";
+                any1.MinOccurs = new decimal(0);
+                any1.MaxOccurs = decimal.MaxValue;
+                any1.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
+                sequence.Items.Add(any1);
+                global::System.Xml.Schema.XmlSchemaAny any2 = new global::System.Xml.Schema.XmlSchemaAny();
+                any2.Namespace = "urn:schemas-microsoft-com:xml-diffgram-v1";
+                any2.MinOccurs = new decimal(1);
+                any2.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
+                sequence.Items.Add(any2);
+                global::System.Xml.Schema.XmlSchemaAttribute attribute1 = new global::System.Xml.Schema.XmlSchemaAttribute();
+                attribute1.Name = "namespace";
+                attribute1.FixedValue = ds.Namespace;
+                type.Attributes.Add(attribute1);
+                global::System.Xml.Schema.XmlSchemaAttribute attribute2 = new global::System.Xml.Schema.XmlSchemaAttribute();
+                attribute2.Name = "tableTypeName";
+                attribute2.FixedValue = "GetStaffWithPositionAndUnitDataTable";
+                type.Attributes.Add(attribute2);
+                type.Particle = sequence;
+                global::System.Xml.Schema.XmlSchema dsSchema = ds.GetSchemaSerializable();
+                if (xs.Contains(dsSchema.TargetNamespace)) {
+                    global::System.IO.MemoryStream s1 = new global::System.IO.MemoryStream();
+                    global::System.IO.MemoryStream s2 = new global::System.IO.MemoryStream();
+                    try {
+                        global::System.Xml.Schema.XmlSchema schema = null;
+                        dsSchema.Write(s1);
+                        for (global::System.Collections.IEnumerator schemas = xs.Schemas(dsSchema.TargetNamespace).GetEnumerator(); schemas.MoveNext(); ) {
+                            schema = ((global::System.Xml.Schema.XmlSchema)(schemas.Current));
+                            s2.SetLength(0);
+                            schema.Write(s2);
+                            if ((s1.Length == s2.Length)) {
+                                s1.Position = 0;
+                                s2.Position = 0;
+                                for (; ((s1.Position != s1.Length) 
+                                            && (s1.ReadByte() == s2.ReadByte())); ) {
+                                    ;
+                                }
+                                if ((s1.Position == s1.Length)) {
+                                    return type;
+                                }
+                            }
+                        }
+                    }
+                    finally {
+                        if ((s1 != null)) {
+                            s1.Close();
+                        }
+                        if ((s2 != null)) {
+                            s2.Close();
+                        }
+                    }
+                }
+                xs.Add(dsSchema);
+                return type;
+            }
+        }
+        
+        /// <summary>
         ///Represents strongly named DataRow class.
         ///</summary>
         public partial class PositionsRow : global::System.Data.DataRow {
@@ -3601,6 +4004,162 @@ namespace HR_Control {
         }
         
         /// <summary>
+        ///Represents strongly named DataRow class.
+        ///</summary>
+        public partial class GetStaffWithPositionAndUnitRow : global::System.Data.DataRow {
+            
+            private GetStaffWithPositionAndUnitDataTable tableGetStaffWithPositionAndUnit;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            internal GetStaffWithPositionAndUnitRow(global::System.Data.DataRowBuilder rb) : 
+                    base(rb) {
+                this.tableGetStaffWithPositionAndUnit = ((GetStaffWithPositionAndUnitDataTable)(this.Table));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string Фамилия {
+                get {
+                    return ((string)(this[this.tableGetStaffWithPositionAndUnit.ФамилияColumn]));
+                }
+                set {
+                    this[this.tableGetStaffWithPositionAndUnit.ФамилияColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string Имя {
+                get {
+                    return ((string)(this[this.tableGetStaffWithPositionAndUnit.ИмяColumn]));
+                }
+                set {
+                    this[this.tableGetStaffWithPositionAndUnit.ИмяColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string Отчествов {
+                get {
+                    try {
+                        return ((string)(this[this.tableGetStaffWithPositionAndUnit.ОтчествовColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Отчествов\' in table \'GetStaffWithPositionAndUnit\' is DBNull" +
+                                ".", e);
+                    }
+                }
+                set {
+                    this[this.tableGetStaffWithPositionAndUnit.ОтчествовColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string Серия_паспорта {
+                get {
+                    return ((string)(this[this.tableGetStaffWithPositionAndUnit.Серия_паспортаColumn]));
+                }
+                set {
+                    this[this.tableGetStaffWithPositionAndUnit.Серия_паспортаColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string Номер_паспорта {
+                get {
+                    return ((string)(this[this.tableGetStaffWithPositionAndUnit.Номер_паспортаColumn]));
+                }
+                set {
+                    this[this.tableGetStaffWithPositionAndUnit.Номер_паспортаColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public System.DateTime Дата_приема {
+                get {
+                    return ((global::System.DateTime)(this[this.tableGetStaffWithPositionAndUnit.Дата_приемаColumn]));
+                }
+                set {
+                    this[this.tableGetStaffWithPositionAndUnit.Дата_приемаColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string Отдел {
+                get {
+                    try {
+                        return ((string)(this[this.tableGetStaffWithPositionAndUnit.ОтделColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Отдел\' in table \'GetStaffWithPositionAndUnit\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableGetStaffWithPositionAndUnit.ОтделColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string Должность {
+                get {
+                    try {
+                        return ((string)(this[this.tableGetStaffWithPositionAndUnit.ДолжностьColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Должность\' in table \'GetStaffWithPositionAndUnit\' is DBNull" +
+                                ".", e);
+                    }
+                }
+                set {
+                    this[this.tableGetStaffWithPositionAndUnit.ДолжностьColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IsОтчествовNull() {
+                return this.IsNull(this.tableGetStaffWithPositionAndUnit.ОтчествовColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetОтчествовNull() {
+                this[this.tableGetStaffWithPositionAndUnit.ОтчествовColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IsОтделNull() {
+                return this.IsNull(this.tableGetStaffWithPositionAndUnit.ОтделColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetОтделNull() {
+                this[this.tableGetStaffWithPositionAndUnit.ОтделColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IsДолжностьNull() {
+                return this.IsNull(this.tableGetStaffWithPositionAndUnit.ДолжностьColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetДолжностьNull() {
+                this[this.tableGetStaffWithPositionAndUnit.ДолжностьColumn] = global::System.Convert.DBNull;
+            }
+        }
+        
+        /// <summary>
         ///Row event argument class
         ///</summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
@@ -3824,6 +4383,40 @@ namespace HR_Control {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public GetArchiveStaffDataRow Row {
+                get {
+                    return this.eventRow;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataRowAction Action {
+                get {
+                    return this.eventAction;
+                }
+            }
+        }
+        
+        /// <summary>
+        ///Row event argument class
+        ///</summary>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        public class GetStaffWithPositionAndUnitRowChangeEvent : global::System.EventArgs {
+            
+            private GetStaffWithPositionAndUnitRow eventRow;
+            
+            private global::System.Data.DataRowAction eventAction;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public GetStaffWithPositionAndUnitRowChangeEvent(GetStaffWithPositionAndUnitRow row, global::System.Data.DataRowAction action) {
+                this.eventRow = row;
+                this.eventAction = action;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public GetStaffWithPositionAndUnitRow Row {
                 get {
                     return this.eventRow;
                 }
@@ -6457,6 +7050,181 @@ SELECT PassportSeries, PassportNumber, UnitID, PositionID FROM Staff_Units_Posit
         public virtual testDBDataSet.GetArchiveStaffDataDataTable GetData() {
             this.Adapter.SelectCommand = this.CommandCollection[0];
             testDBDataSet.GetArchiveStaffDataDataTable dataTable = new testDBDataSet.GetArchiveStaffDataDataTable();
+            this.Adapter.Fill(dataTable);
+            return dataTable;
+        }
+    }
+    
+    /// <summary>
+    ///Represents the connection and commands used to retrieve and save data.
+    ///</summary>
+    [global::System.ComponentModel.DesignerCategoryAttribute("code")]
+    [global::System.ComponentModel.ToolboxItem(true)]
+    [global::System.ComponentModel.DataObjectAttribute(true)]
+    [global::System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner" +
+        ", Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a")]
+    [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+    public partial class GetStaffWithPositionAndUnitTableAdapter : global::System.ComponentModel.Component {
+        
+        private global::System.Data.SqlClient.SqlDataAdapter _adapter;
+        
+        private global::System.Data.SqlClient.SqlConnection _connection;
+        
+        private global::System.Data.SqlClient.SqlTransaction _transaction;
+        
+        private global::System.Data.SqlClient.SqlCommand[] _commandCollection;
+        
+        private bool _clearBeforeFill;
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        public GetStaffWithPositionAndUnitTableAdapter() {
+            this.ClearBeforeFill = true;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        protected internal global::System.Data.SqlClient.SqlDataAdapter Adapter {
+            get {
+                if ((this._adapter == null)) {
+                    this.InitAdapter();
+                }
+                return this._adapter;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        internal global::System.Data.SqlClient.SqlConnection Connection {
+            get {
+                if ((this._connection == null)) {
+                    this.InitConnection();
+                }
+                return this._connection;
+            }
+            set {
+                this._connection = value;
+                if ((this.Adapter.InsertCommand != null)) {
+                    this.Adapter.InsertCommand.Connection = value;
+                }
+                if ((this.Adapter.DeleteCommand != null)) {
+                    this.Adapter.DeleteCommand.Connection = value;
+                }
+                if ((this.Adapter.UpdateCommand != null)) {
+                    this.Adapter.UpdateCommand.Connection = value;
+                }
+                for (int i = 0; (i < this.CommandCollection.Length); i = (i + 1)) {
+                    if ((this.CommandCollection[i] != null)) {
+                        ((global::System.Data.SqlClient.SqlCommand)(this.CommandCollection[i])).Connection = value;
+                    }
+                }
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        internal global::System.Data.SqlClient.SqlTransaction Transaction {
+            get {
+                return this._transaction;
+            }
+            set {
+                this._transaction = value;
+                for (int i = 0; (i < this.CommandCollection.Length); i = (i + 1)) {
+                    this.CommandCollection[i].Transaction = this._transaction;
+                }
+                if (((this.Adapter != null) 
+                            && (this.Adapter.DeleteCommand != null))) {
+                    this.Adapter.DeleteCommand.Transaction = this._transaction;
+                }
+                if (((this.Adapter != null) 
+                            && (this.Adapter.InsertCommand != null))) {
+                    this.Adapter.InsertCommand.Transaction = this._transaction;
+                }
+                if (((this.Adapter != null) 
+                            && (this.Adapter.UpdateCommand != null))) {
+                    this.Adapter.UpdateCommand.Transaction = this._transaction;
+                }
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        protected global::System.Data.SqlClient.SqlCommand[] CommandCollection {
+            get {
+                if ((this._commandCollection == null)) {
+                    this.InitCommandCollection();
+                }
+                return this._commandCollection;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        public bool ClearBeforeFill {
+            get {
+                return this._clearBeforeFill;
+            }
+            set {
+                this._clearBeforeFill = value;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        private void InitAdapter() {
+            this._adapter = new global::System.Data.SqlClient.SqlDataAdapter();
+            global::System.Data.Common.DataTableMapping tableMapping = new global::System.Data.Common.DataTableMapping();
+            tableMapping.SourceTable = "Table";
+            tableMapping.DataSetTable = "GetStaffWithPositionAndUnit";
+            tableMapping.ColumnMappings.Add("Фамилия", "Фамилия");
+            tableMapping.ColumnMappings.Add("Имя", "Имя");
+            tableMapping.ColumnMappings.Add("Отчествов", "Отчествов");
+            tableMapping.ColumnMappings.Add("Серия паспорта", "Серия паспорта");
+            tableMapping.ColumnMappings.Add("Номер паспорта", "Номер паспорта");
+            tableMapping.ColumnMappings.Add("Дата приема", "Дата приема");
+            tableMapping.ColumnMappings.Add("Отдел", "Отдел");
+            tableMapping.ColumnMappings.Add("Должность", "Должность");
+            this._adapter.TableMappings.Add(tableMapping);
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        private void InitConnection() {
+            this._connection = new global::System.Data.SqlClient.SqlConnection();
+            this._connection.ConnectionString = global::HR_Control.Properties.Settings.Default.testDBConnectionString;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        private void InitCommandCollection() {
+            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
+            this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
+            this._commandCollection[0].Connection = this.Connection;
+            this._commandCollection[0].CommandText = "SELECT Фамилия, Имя, Отчествов, [Серия паспорта], [Номер паспорта], [Дата приема]" +
+                ", Отдел, Должность FROM dbo.GetStaffWithPositionAndUnit";
+            this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
+        public virtual int Fill(testDBDataSet.GetStaffWithPositionAndUnitDataTable dataTable) {
+            this.Adapter.SelectCommand = this.CommandCollection[0];
+            if ((this.ClearBeforeFill == true)) {
+                dataTable.Clear();
+            }
+            int returnValue = this.Adapter.Fill(dataTable);
+            return returnValue;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
+        public virtual testDBDataSet.GetStaffWithPositionAndUnitDataTable GetData() {
+            this.Adapter.SelectCommand = this.CommandCollection[0];
+            testDBDataSet.GetStaffWithPositionAndUnitDataTable dataTable = new testDBDataSet.GetStaffWithPositionAndUnitDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
         }

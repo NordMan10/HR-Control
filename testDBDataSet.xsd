@@ -424,6 +424,29 @@ SELECT PassportSeries, PassportNumber, UnitID, PositionID FROM Staff_Units_Posit
             </Mappings>
             <Sources />
           </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="GetStaffWithPositionAndUnitTableAdapter" GeneratorDataComponentClassName="GetStaffWithPositionAndUnitTableAdapter" Name="GetStaffWithPositionAndUnit" UserDataComponentName="GetStaffWithPositionAndUnitTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="testDBConnectionString (Settings)" DbObjectName="testDB.dbo.GetStaffWithPositionAndUnit" DbObjectType="View" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>SELECT Фамилия, Имя, Отчествов, [Серия паспорта], [Номер паспорта], [Дата приема], Отдел, Должность FROM dbo.GetStaffWithPositionAndUnit</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="Фамилия" DataSetColumn="Фамилия" />
+              <Mapping SourceColumn="Имя" DataSetColumn="Имя" />
+              <Mapping SourceColumn="Отчествов" DataSetColumn="Отчествов" />
+              <Mapping SourceColumn="Серия паспорта" DataSetColumn="Серия паспорта" />
+              <Mapping SourceColumn="Номер паспорта" DataSetColumn="Номер паспорта" />
+              <Mapping SourceColumn="Дата приема" DataSetColumn="Дата приема" />
+              <Mapping SourceColumn="Отдел" DataSetColumn="Отдел" />
+              <Mapping SourceColumn="Должность" DataSetColumn="Должность" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
         </Tables>
         <Sources />
       </DataSource>
@@ -512,61 +535,61 @@ SELECT PassportSeries, PassportNumber, UnitID, PositionID FROM Staff_Units_Posit
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="Staff_Archive" msprop:Generator_RowEvHandlerName="Staff_ArchiveRowChangeEventHandler" msprop:Generator_RowDeletedName="Staff_ArchiveRowDeleted" msprop:Generator_RowDeletingName="Staff_ArchiveRowDeleting" msprop:Generator_RowEvArgName="Staff_ArchiveRowChangeEvent" msprop:Generator_TablePropName="Staff_Archive" msprop:Generator_RowChangedName="Staff_ArchiveRowChanged" msprop:Generator_RowChangingName="Staff_ArchiveRowChanging" msprop:Generator_TableClassName="Staff_ArchiveDataTable" msprop:Generator_RowClassName="Staff_ArchiveRow" msprop:Generator_TableVarName="tableStaff_Archive" msprop:Generator_UserTableName="Staff_Archive">
+        <xs:element name="Staff_Archive" msprop:Generator_RowClassName="Staff_ArchiveRow" msprop:Generator_RowEvHandlerName="Staff_ArchiveRowChangeEventHandler" msprop:Generator_RowDeletedName="Staff_ArchiveRowDeleted" msprop:Generator_RowDeletingName="Staff_ArchiveRowDeleting" msprop:Generator_RowEvArgName="Staff_ArchiveRowChangeEvent" msprop:Generator_TablePropName="Staff_Archive" msprop:Generator_RowChangedName="Staff_ArchiveRowChanged" msprop:Generator_UserTableName="Staff_Archive" msprop:Generator_RowChangingName="Staff_ArchiveRowChanging" msprop:Generator_TableClassName="Staff_ArchiveDataTable" msprop:Generator_TableVarName="tableStaff_Archive">
           <xs:complexType>
             <xs:sequence>
-              <xs:element name="FirstName" msprop:Generator_ColumnPropNameInRow="FirstName" msprop:Generator_ColumnPropNameInTable="FirstNameColumn" msprop:Generator_ColumnVarNameInTable="columnFirstName" msprop:Generator_UserColumnName="FirstName">
+              <xs:element name="FirstName" msprop:Generator_UserColumnName="FirstName" msprop:Generator_ColumnPropNameInTable="FirstNameColumn" msprop:Generator_ColumnPropNameInRow="FirstName" msprop:Generator_ColumnVarNameInTable="columnFirstName">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="30" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="SecondName" msprop:Generator_ColumnPropNameInRow="SecondName" msprop:Generator_ColumnPropNameInTable="SecondNameColumn" msprop:Generator_ColumnVarNameInTable="columnSecondName" msprop:Generator_UserColumnName="SecondName">
+              <xs:element name="SecondName" msprop:Generator_UserColumnName="SecondName" msprop:Generator_ColumnPropNameInTable="SecondNameColumn" msprop:Generator_ColumnPropNameInRow="SecondName" msprop:Generator_ColumnVarNameInTable="columnSecondName">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="30" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="Patronymic" msprop:Generator_ColumnPropNameInRow="Patronymic" msprop:Generator_ColumnPropNameInTable="PatronymicColumn" msprop:Generator_ColumnVarNameInTable="columnPatronymic" msprop:Generator_UserColumnName="Patronymic" minOccurs="0">
+              <xs:element name="Patronymic" msprop:Generator_UserColumnName="Patronymic" msprop:Generator_ColumnPropNameInTable="PatronymicColumn" msprop:Generator_ColumnPropNameInRow="Patronymic" msprop:Generator_ColumnVarNameInTable="columnPatronymic" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="30" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="PassportSeries" msprop:Generator_ColumnPropNameInRow="PassportSeries" msprop:Generator_ColumnPropNameInTable="PassportSeriesColumn" msprop:Generator_ColumnVarNameInTable="columnPassportSeries" msprop:Generator_UserColumnName="PassportSeries">
+              <xs:element name="PassportSeries" msprop:Generator_UserColumnName="PassportSeries" msprop:Generator_ColumnPropNameInTable="PassportSeriesColumn" msprop:Generator_ColumnPropNameInRow="PassportSeries" msprop:Generator_ColumnVarNameInTable="columnPassportSeries">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="4" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="PassportNumber" msprop:Generator_ColumnPropNameInRow="PassportNumber" msprop:Generator_ColumnPropNameInTable="PassportNumberColumn" msprop:Generator_ColumnVarNameInTable="columnPassportNumber" msprop:Generator_UserColumnName="PassportNumber">
+              <xs:element name="PassportNumber" msprop:Generator_UserColumnName="PassportNumber" msprop:Generator_ColumnPropNameInTable="PassportNumberColumn" msprop:Generator_ColumnPropNameInRow="PassportNumber" msprop:Generator_ColumnVarNameInTable="columnPassportNumber">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="6" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="BirthDate" msprop:Generator_ColumnPropNameInRow="BirthDate" msprop:Generator_ColumnPropNameInTable="BirthDateColumn" msprop:Generator_ColumnVarNameInTable="columnBirthDate" msprop:Generator_UserColumnName="BirthDate" type="xs:dateTime" />
-              <xs:element name="Education" msprop:Generator_ColumnPropNameInRow="Education" msprop:Generator_ColumnPropNameInTable="EducationColumn" msprop:Generator_ColumnVarNameInTable="columnEducation" msprop:Generator_UserColumnName="Education">
+              <xs:element name="BirthDate" msprop:Generator_UserColumnName="BirthDate" msprop:Generator_ColumnPropNameInTable="BirthDateColumn" msprop:Generator_ColumnPropNameInRow="BirthDate" msprop:Generator_ColumnVarNameInTable="columnBirthDate" type="xs:dateTime" />
+              <xs:element name="Education" msprop:Generator_UserColumnName="Education" msprop:Generator_ColumnPropNameInTable="EducationColumn" msprop:Generator_ColumnPropNameInRow="Education" msprop:Generator_ColumnVarNameInTable="columnEducation">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="50" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="HireDate" msprop:Generator_ColumnPropNameInRow="HireDate" msprop:Generator_ColumnPropNameInTable="HireDateColumn" msprop:Generator_ColumnVarNameInTable="columnHireDate" msprop:Generator_UserColumnName="HireDate" type="xs:dateTime" />
-              <xs:element name="PositionName" msprop:Generator_ColumnPropNameInRow="PositionName" msprop:Generator_ColumnPropNameInTable="PositionNameColumn" msprop:Generator_ColumnVarNameInTable="columnPositionName" msprop:Generator_UserColumnName="PositionName">
+              <xs:element name="HireDate" msprop:Generator_UserColumnName="HireDate" msprop:Generator_ColumnPropNameInTable="HireDateColumn" msprop:Generator_ColumnPropNameInRow="HireDate" msprop:Generator_ColumnVarNameInTable="columnHireDate" type="xs:dateTime" />
+              <xs:element name="PositionName" msprop:Generator_UserColumnName="PositionName" msprop:Generator_ColumnPropNameInTable="PositionNameColumn" msprop:Generator_ColumnPropNameInRow="PositionName" msprop:Generator_ColumnVarNameInTable="columnPositionName">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="50" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="UnitName" msprop:Generator_ColumnPropNameInRow="UnitName" msprop:Generator_ColumnPropNameInTable="UnitNameColumn" msprop:Generator_ColumnVarNameInTable="columnUnitName" msprop:Generator_UserColumnName="UnitName">
+              <xs:element name="UnitName" msprop:Generator_UserColumnName="UnitName" msprop:Generator_ColumnPropNameInTable="UnitNameColumn" msprop:Generator_ColumnPropNameInRow="UnitName" msprop:Generator_ColumnVarNameInTable="columnUnitName">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="50" />
@@ -576,105 +599,161 @@ SELECT PassportSeries, PassportNumber, UnitID, PositionID FROM Staff_Units_Posit
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="Staff_Units_Positions" msprop:Generator_RowEvHandlerName="Staff_Units_PositionsRowChangeEventHandler" msprop:Generator_RowDeletedName="Staff_Units_PositionsRowDeleted" msprop:Generator_RowDeletingName="Staff_Units_PositionsRowDeleting" msprop:Generator_RowEvArgName="Staff_Units_PositionsRowChangeEvent" msprop:Generator_TablePropName="Staff_Units_Positions" msprop:Generator_RowChangedName="Staff_Units_PositionsRowChanged" msprop:Generator_RowChangingName="Staff_Units_PositionsRowChanging" msprop:Generator_TableClassName="Staff_Units_PositionsDataTable" msprop:Generator_RowClassName="Staff_Units_PositionsRow" msprop:Generator_TableVarName="tableStaff_Units_Positions" msprop:Generator_UserTableName="Staff_Units_Positions">
+        <xs:element name="Staff_Units_Positions" msprop:Generator_RowClassName="Staff_Units_PositionsRow" msprop:Generator_RowEvHandlerName="Staff_Units_PositionsRowChangeEventHandler" msprop:Generator_RowDeletedName="Staff_Units_PositionsRowDeleted" msprop:Generator_RowDeletingName="Staff_Units_PositionsRowDeleting" msprop:Generator_RowEvArgName="Staff_Units_PositionsRowChangeEvent" msprop:Generator_TablePropName="Staff_Units_Positions" msprop:Generator_RowChangedName="Staff_Units_PositionsRowChanged" msprop:Generator_UserTableName="Staff_Units_Positions" msprop:Generator_RowChangingName="Staff_Units_PositionsRowChanging" msprop:Generator_TableClassName="Staff_Units_PositionsDataTable" msprop:Generator_TableVarName="tableStaff_Units_Positions">
           <xs:complexType>
             <xs:sequence>
-              <xs:element name="PassportSeries" msprop:Generator_ColumnPropNameInRow="PassportSeries" msprop:Generator_ColumnPropNameInTable="PassportSeriesColumn" msprop:Generator_ColumnVarNameInTable="columnPassportSeries" msprop:Generator_UserColumnName="PassportSeries">
+              <xs:element name="PassportSeries" msprop:Generator_UserColumnName="PassportSeries" msprop:Generator_ColumnPropNameInTable="PassportSeriesColumn" msprop:Generator_ColumnPropNameInRow="PassportSeries" msprop:Generator_ColumnVarNameInTable="columnPassportSeries">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="4" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="PassportNumber" msprop:Generator_ColumnPropNameInRow="PassportNumber" msprop:Generator_ColumnPropNameInTable="PassportNumberColumn" msprop:Generator_ColumnVarNameInTable="columnPassportNumber" msprop:Generator_UserColumnName="PassportNumber">
+              <xs:element name="PassportNumber" msprop:Generator_UserColumnName="PassportNumber" msprop:Generator_ColumnPropNameInTable="PassportNumberColumn" msprop:Generator_ColumnPropNameInRow="PassportNumber" msprop:Generator_ColumnVarNameInTable="columnPassportNumber">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="6" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="UnitID" msprop:Generator_ColumnPropNameInRow="UnitID" msprop:Generator_ColumnPropNameInTable="UnitIDColumn" msprop:Generator_ColumnVarNameInTable="columnUnitID" msprop:Generator_UserColumnName="UnitID" type="xs:int" />
-              <xs:element name="PositionID" msprop:Generator_ColumnPropNameInRow="PositionID" msprop:Generator_ColumnPropNameInTable="PositionIDColumn" msprop:Generator_ColumnVarNameInTable="columnPositionID" msprop:Generator_UserColumnName="PositionID" type="xs:int" />
+              <xs:element name="UnitID" msprop:Generator_UserColumnName="UnitID" msprop:Generator_ColumnPropNameInTable="UnitIDColumn" msprop:Generator_ColumnPropNameInRow="UnitID" msprop:Generator_ColumnVarNameInTable="columnUnitID" type="xs:int" />
+              <xs:element name="PositionID" msprop:Generator_UserColumnName="PositionID" msprop:Generator_ColumnPropNameInTable="PositionIDColumn" msprop:Generator_ColumnPropNameInRow="PositionID" msprop:Generator_ColumnVarNameInTable="columnPositionID" type="xs:int" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="Staff_Units_Positions_Archive" msprop:Generator_RowEvHandlerName="Staff_Units_Positions_ArchiveRowChangeEventHandler" msprop:Generator_RowDeletedName="Staff_Units_Positions_ArchiveRowDeleted" msprop:Generator_RowDeletingName="Staff_Units_Positions_ArchiveRowDeleting" msprop:Generator_RowEvArgName="Staff_Units_Positions_ArchiveRowChangeEvent" msprop:Generator_TablePropName="Staff_Units_Positions_Archive" msprop:Generator_RowChangedName="Staff_Units_Positions_ArchiveRowChanged" msprop:Generator_RowChangingName="Staff_Units_Positions_ArchiveRowChanging" msprop:Generator_TableClassName="Staff_Units_Positions_ArchiveDataTable" msprop:Generator_RowClassName="Staff_Units_Positions_ArchiveRow" msprop:Generator_TableVarName="tableStaff_Units_Positions_Archive" msprop:Generator_UserTableName="Staff_Units_Positions_Archive">
+        <xs:element name="Staff_Units_Positions_Archive" msprop:Generator_RowClassName="Staff_Units_Positions_ArchiveRow" msprop:Generator_RowEvHandlerName="Staff_Units_Positions_ArchiveRowChangeEventHandler" msprop:Generator_RowDeletedName="Staff_Units_Positions_ArchiveRowDeleted" msprop:Generator_RowDeletingName="Staff_Units_Positions_ArchiveRowDeleting" msprop:Generator_RowEvArgName="Staff_Units_Positions_ArchiveRowChangeEvent" msprop:Generator_TablePropName="Staff_Units_Positions_Archive" msprop:Generator_RowChangedName="Staff_Units_Positions_ArchiveRowChanged" msprop:Generator_UserTableName="Staff_Units_Positions_Archive" msprop:Generator_RowChangingName="Staff_Units_Positions_ArchiveRowChanging" msprop:Generator_TableClassName="Staff_Units_Positions_ArchiveDataTable" msprop:Generator_TableVarName="tableStaff_Units_Positions_Archive">
           <xs:complexType>
             <xs:sequence>
-              <xs:element name="PassportSeries" msprop:Generator_ColumnPropNameInRow="PassportSeries" msprop:Generator_ColumnPropNameInTable="PassportSeriesColumn" msprop:Generator_ColumnVarNameInTable="columnPassportSeries" msprop:Generator_UserColumnName="PassportSeries">
+              <xs:element name="PassportSeries" msprop:Generator_UserColumnName="PassportSeries" msprop:Generator_ColumnPropNameInTable="PassportSeriesColumn" msprop:Generator_ColumnPropNameInRow="PassportSeries" msprop:Generator_ColumnVarNameInTable="columnPassportSeries">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="4" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="PassportNumber" msprop:Generator_ColumnPropNameInRow="PassportNumber" msprop:Generator_ColumnPropNameInTable="PassportNumberColumn" msprop:Generator_ColumnVarNameInTable="columnPassportNumber" msprop:Generator_UserColumnName="PassportNumber">
+              <xs:element name="PassportNumber" msprop:Generator_UserColumnName="PassportNumber" msprop:Generator_ColumnPropNameInTable="PassportNumberColumn" msprop:Generator_ColumnPropNameInRow="PassportNumber" msprop:Generator_ColumnVarNameInTable="columnPassportNumber">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="6" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="UnitID" msprop:Generator_ColumnPropNameInRow="UnitID" msprop:Generator_ColumnPropNameInTable="UnitIDColumn" msprop:Generator_ColumnVarNameInTable="columnUnitID" msprop:Generator_UserColumnName="UnitID" type="xs:int" />
-              <xs:element name="PositionID" msprop:Generator_ColumnPropNameInRow="PositionID" msprop:Generator_ColumnPropNameInTable="PositionIDColumn" msprop:Generator_ColumnVarNameInTable="columnPositionID" msprop:Generator_UserColumnName="PositionID" type="xs:int" />
+              <xs:element name="UnitID" msprop:Generator_UserColumnName="UnitID" msprop:Generator_ColumnPropNameInTable="UnitIDColumn" msprop:Generator_ColumnPropNameInRow="UnitID" msprop:Generator_ColumnVarNameInTable="columnUnitID" type="xs:int" />
+              <xs:element name="PositionID" msprop:Generator_UserColumnName="PositionID" msprop:Generator_ColumnPropNameInTable="PositionIDColumn" msprop:Generator_ColumnPropNameInRow="PositionID" msprop:Generator_ColumnVarNameInTable="columnPositionID" type="xs:int" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="GetArchiveStaffData" msprop:Generator_RowEvHandlerName="GetArchiveStaffDataRowChangeEventHandler" msprop:Generator_RowDeletedName="GetArchiveStaffDataRowDeleted" msprop:Generator_RowDeletingName="GetArchiveStaffDataRowDeleting" msprop:Generator_RowEvArgName="GetArchiveStaffDataRowChangeEvent" msprop:Generator_TablePropName="GetArchiveStaffData" msprop:Generator_RowChangedName="GetArchiveStaffDataRowChanged" msprop:Generator_RowChangingName="GetArchiveStaffDataRowChanging" msprop:Generator_TableClassName="GetArchiveStaffDataDataTable" msprop:Generator_RowClassName="GetArchiveStaffDataRow" msprop:Generator_TableVarName="tableGetArchiveStaffData" msprop:Generator_UserTableName="GetArchiveStaffData">
+        <xs:element name="GetArchiveStaffData" msprop:Generator_RowClassName="GetArchiveStaffDataRow" msprop:Generator_RowEvHandlerName="GetArchiveStaffDataRowChangeEventHandler" msprop:Generator_RowDeletedName="GetArchiveStaffDataRowDeleted" msprop:Generator_RowDeletingName="GetArchiveStaffDataRowDeleting" msprop:Generator_RowEvArgName="GetArchiveStaffDataRowChangeEvent" msprop:Generator_TablePropName="GetArchiveStaffData" msprop:Generator_RowChangedName="GetArchiveStaffDataRowChanged" msprop:Generator_UserTableName="GetArchiveStaffData" msprop:Generator_RowChangingName="GetArchiveStaffDataRowChanging" msprop:Generator_TableClassName="GetArchiveStaffDataDataTable" msprop:Generator_TableVarName="tableGetArchiveStaffData">
           <xs:complexType>
             <xs:sequence>
-              <xs:element name="SecondName" msprop:Generator_ColumnPropNameInRow="SecondName" msprop:Generator_ColumnPropNameInTable="SecondNameColumn" msprop:Generator_ColumnVarNameInTable="columnSecondName" msprop:Generator_UserColumnName="SecondName">
+              <xs:element name="SecondName" msprop:Generator_UserColumnName="SecondName" msprop:Generator_ColumnPropNameInTable="SecondNameColumn" msprop:Generator_ColumnPropNameInRow="SecondName" msprop:Generator_ColumnVarNameInTable="columnSecondName">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="30" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="FirstName" msprop:Generator_ColumnPropNameInRow="FirstName" msprop:Generator_ColumnPropNameInTable="FirstNameColumn" msprop:Generator_ColumnVarNameInTable="columnFirstName" msprop:Generator_UserColumnName="FirstName">
+              <xs:element name="FirstName" msprop:Generator_UserColumnName="FirstName" msprop:Generator_ColumnPropNameInTable="FirstNameColumn" msprop:Generator_ColumnPropNameInRow="FirstName" msprop:Generator_ColumnVarNameInTable="columnFirstName">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="30" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="Patronymic" msprop:Generator_ColumnPropNameInRow="Patronymic" msprop:Generator_ColumnPropNameInTable="PatronymicColumn" msprop:Generator_ColumnVarNameInTable="columnPatronymic" msprop:Generator_UserColumnName="Patronymic" minOccurs="0">
+              <xs:element name="Patronymic" msprop:Generator_UserColumnName="Patronymic" msprop:Generator_ColumnPropNameInTable="PatronymicColumn" msprop:Generator_ColumnPropNameInRow="Patronymic" msprop:Generator_ColumnVarNameInTable="columnPatronymic" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="30" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="PassportSeries" msprop:Generator_ColumnPropNameInRow="PassportSeries" msprop:Generator_ColumnPropNameInTable="PassportSeriesColumn" msprop:Generator_ColumnVarNameInTable="columnPassportSeries" msprop:Generator_UserColumnName="PassportSeries">
+              <xs:element name="PassportSeries" msprop:Generator_UserColumnName="PassportSeries" msprop:Generator_ColumnPropNameInTable="PassportSeriesColumn" msprop:Generator_ColumnPropNameInRow="PassportSeries" msprop:Generator_ColumnVarNameInTable="columnPassportSeries">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="4" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="PassportNumber" msprop:Generator_ColumnPropNameInRow="PassportNumber" msprop:Generator_ColumnPropNameInTable="PassportNumberColumn" msprop:Generator_ColumnVarNameInTable="columnPassportNumber" msprop:Generator_UserColumnName="PassportNumber">
+              <xs:element name="PassportNumber" msprop:Generator_UserColumnName="PassportNumber" msprop:Generator_ColumnPropNameInTable="PassportNumberColumn" msprop:Generator_ColumnPropNameInRow="PassportNumber" msprop:Generator_ColumnVarNameInTable="columnPassportNumber">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="6" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="BirthDate" msprop:Generator_ColumnPropNameInRow="BirthDate" msprop:Generator_ColumnPropNameInTable="BirthDateColumn" msprop:Generator_ColumnVarNameInTable="columnBirthDate" msprop:Generator_UserColumnName="BirthDate" type="xs:dateTime" />
-              <xs:element name="Education" msprop:Generator_ColumnPropNameInRow="Education" msprop:Generator_ColumnPropNameInTable="EducationColumn" msprop:Generator_ColumnVarNameInTable="columnEducation" msprop:Generator_UserColumnName="Education">
+              <xs:element name="BirthDate" msprop:Generator_UserColumnName="BirthDate" msprop:Generator_ColumnPropNameInTable="BirthDateColumn" msprop:Generator_ColumnPropNameInRow="BirthDate" msprop:Generator_ColumnVarNameInTable="columnBirthDate" type="xs:dateTime" />
+              <xs:element name="Education" msprop:Generator_UserColumnName="Education" msprop:Generator_ColumnPropNameInTable="EducationColumn" msprop:Generator_ColumnPropNameInRow="Education" msprop:Generator_ColumnVarNameInTable="columnEducation">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="50" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="HireDate" msprop:Generator_ColumnPropNameInRow="HireDate" msprop:Generator_ColumnPropNameInTable="HireDateColumn" msprop:Generator_ColumnVarNameInTable="columnHireDate" msprop:Generator_UserColumnName="HireDate" type="xs:dateTime" />
-              <xs:element name="UnitName" msprop:Generator_ColumnPropNameInRow="UnitName" msprop:Generator_ColumnPropNameInTable="UnitNameColumn" msprop:Generator_ColumnVarNameInTable="columnUnitName" msprop:Generator_UserColumnName="UnitName" minOccurs="0">
+              <xs:element name="HireDate" msprop:Generator_UserColumnName="HireDate" msprop:Generator_ColumnPropNameInTable="HireDateColumn" msprop:Generator_ColumnPropNameInRow="HireDate" msprop:Generator_ColumnVarNameInTable="columnHireDate" type="xs:dateTime" />
+              <xs:element name="UnitName" msprop:Generator_UserColumnName="UnitName" msprop:Generator_ColumnPropNameInTable="UnitNameColumn" msprop:Generator_ColumnPropNameInRow="UnitName" msprop:Generator_ColumnVarNameInTable="columnUnitName" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="800" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="PositionName" msprop:Generator_ColumnPropNameInRow="PositionName" msprop:Generator_ColumnPropNameInTable="PositionNameColumn" msprop:Generator_ColumnVarNameInTable="columnPositionName" msprop:Generator_UserColumnName="PositionName" minOccurs="0">
+              <xs:element name="PositionName" msprop:Generator_UserColumnName="PositionName" msprop:Generator_ColumnPropNameInTable="PositionNameColumn" msprop:Generator_ColumnPropNameInRow="PositionName" msprop:Generator_ColumnVarNameInTable="columnPositionName" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="800" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="GetStaffWithPositionAndUnit" msprop:Generator_RowEvHandlerName="GetStaffWithPositionAndUnitRowChangeEventHandler" msprop:Generator_RowDeletedName="GetStaffWithPositionAndUnitRowDeleted" msprop:Generator_RowDeletingName="GetStaffWithPositionAndUnitRowDeleting" msprop:Generator_RowEvArgName="GetStaffWithPositionAndUnitRowChangeEvent" msprop:Generator_TablePropName="GetStaffWithPositionAndUnit" msprop:Generator_RowChangedName="GetStaffWithPositionAndUnitRowChanged" msprop:Generator_RowChangingName="GetStaffWithPositionAndUnitRowChanging" msprop:Generator_TableClassName="GetStaffWithPositionAndUnitDataTable" msprop:Generator_RowClassName="GetStaffWithPositionAndUnitRow" msprop:Generator_TableVarName="tableGetStaffWithPositionAndUnit" msprop:Generator_UserTableName="GetStaffWithPositionAndUnit">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Фамилия" msprop:Generator_ColumnPropNameInRow="Фамилия" msprop:Generator_ColumnPropNameInTable="ФамилияColumn" msprop:Generator_ColumnVarNameInTable="columnФамилия" msprop:Generator_UserColumnName="Фамилия">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="30" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Имя" msprop:Generator_ColumnPropNameInRow="Имя" msprop:Generator_ColumnPropNameInTable="ИмяColumn" msprop:Generator_ColumnVarNameInTable="columnИмя" msprop:Generator_UserColumnName="Имя">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="30" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Отчествов" msprop:Generator_ColumnPropNameInRow="Отчествов" msprop:Generator_ColumnPropNameInTable="ОтчествовColumn" msprop:Generator_ColumnVarNameInTable="columnОтчествов" msprop:Generator_UserColumnName="Отчествов" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="30" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Серия_x0020_паспорта" msprop:Generator_ColumnPropNameInRow="Серия_паспорта" msprop:Generator_ColumnPropNameInTable="Серия_паспортаColumn" msprop:Generator_ColumnVarNameInTable="columnСерия_паспорта" msprop:Generator_UserColumnName="Серия паспорта">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="4" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Номер_x0020_паспорта" msprop:Generator_ColumnPropNameInRow="Номер_паспорта" msprop:Generator_ColumnPropNameInTable="Номер_паспортаColumn" msprop:Generator_ColumnVarNameInTable="columnНомер_паспорта" msprop:Generator_UserColumnName="Номер паспорта">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="6" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Дата_x0020_приема" msprop:Generator_ColumnPropNameInRow="Дата_приема" msprop:Generator_ColumnPropNameInTable="Дата_приемаColumn" msprop:Generator_ColumnVarNameInTable="columnДата_приема" msprop:Generator_UserColumnName="Дата приема" type="xs:dateTime" />
+              <xs:element name="Отдел" msprop:Generator_ColumnPropNameInRow="Отдел" msprop:Generator_ColumnPropNameInTable="ОтделColumn" msprop:Generator_ColumnVarNameInTable="columnОтдел" msprop:Generator_UserColumnName="Отдел" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="800" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Должность" msprop:Generator_ColumnPropNameInRow="Должность" msprop:Generator_ColumnPropNameInTable="ДолжностьColumn" msprop:Generator_ColumnVarNameInTable="columnДолжность" msprop:Generator_UserColumnName="Должность" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="800" />
@@ -725,12 +804,17 @@ SELECT PassportSeries, PassportNumber, UnitID, PositionID FROM Staff_Units_Posit
       <xs:field xpath="mstns:PassportSeries" />
       <xs:field xpath="mstns:PassportNumber" />
     </xs:unique>
+    <xs:unique name="GetStaffWithPositionAndUnit_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:GetStaffWithPositionAndUnit" />
+      <xs:field xpath="mstns:Серия_x0020_паспорта" />
+      <xs:field xpath="mstns:Номер_x0020_паспорта" />
+    </xs:unique>
   </xs:element>
   <xs:annotation>
     <xs:appinfo>
-      <msdata:Relationship name="FK_with_Position_on_PositionID" msdata:parent="Positions" msdata:child="Staff_Units_Positions" msdata:parentkey="ID" msdata:childkey="PositionID" msprop:Generator_UserParentTable="Positions" msprop:Generator_UserChildTable="Staff_Units_Positions" msprop:Generator_RelationVarName="relationFK_with_Position_on_PositionID" msprop:Generator_ChildPropName="GetStaff_Units_PositionsRows" msprop:Generator_ParentPropName="PositionsRow" msprop:Generator_UserRelationName="FK_with_Position_on_PositionID" />
-      <msdata:Relationship name="FK_with_Staff_on_PSeries_and_PNumber" msdata:parent="Staff" msdata:child="Staff_Units_Positions" msdata:parentkey="PassportSeries PassportNumber" msdata:childkey="PassportSeries PassportNumber" msprop:Generator_UserParentTable="Staff" msprop:Generator_UserChildTable="Staff_Units_Positions" msprop:Generator_RelationVarName="relationFK_with_Staff_on_PSeries_and_PNumber" msprop:Generator_ChildPropName="GetStaff_Units_PositionsRows" msprop:Generator_ParentPropName="StaffRowParent" msprop:Generator_UserRelationName="FK_with_Staff_on_PSeries_and_PNumber" />
-      <msdata:Relationship name="FK_with_Units_on_UnitID" msdata:parent="Units" msdata:child="Staff_Units_Positions" msdata:parentkey="ID" msdata:childkey="UnitID" msprop:Generator_UserParentTable="Units" msprop:Generator_UserChildTable="Staff_Units_Positions" msprop:Generator_RelationVarName="relationFK_with_Units_on_UnitID" msprop:Generator_ChildPropName="GetStaff_Units_PositionsRows" msprop:Generator_ParentPropName="UnitsRow" msprop:Generator_UserRelationName="FK_with_Units_on_UnitID" />
+      <msdata:Relationship name="FK_with_Position_on_PositionID" msdata:parent="Positions" msdata:child="Staff_Units_Positions" msdata:parentkey="ID" msdata:childkey="PositionID" msprop:Generator_UserParentTable="Positions" msprop:Generator_UserChildTable="Staff_Units_Positions" msprop:Generator_RelationVarName="relationFK_with_Position_on_PositionID" msprop:Generator_ChildPropName="GetStaff_Units_PositionsRows" msprop:Generator_UserRelationName="FK_with_Position_on_PositionID" msprop:Generator_ParentPropName="PositionsRow" />
+      <msdata:Relationship name="FK_with_Staff_on_PSeries_and_PNumber" msdata:parent="Staff" msdata:child="Staff_Units_Positions" msdata:parentkey="PassportSeries PassportNumber" msdata:childkey="PassportSeries PassportNumber" msprop:Generator_UserParentTable="Staff" msprop:Generator_UserChildTable="Staff_Units_Positions" msprop:Generator_RelationVarName="relationFK_with_Staff_on_PSeries_and_PNumber" msprop:Generator_ChildPropName="GetStaff_Units_PositionsRows" msprop:Generator_UserRelationName="FK_with_Staff_on_PSeries_and_PNumber" msprop:Generator_ParentPropName="StaffRowParent" />
+      <msdata:Relationship name="FK_with_Units_on_UnitID" msdata:parent="Units" msdata:child="Staff_Units_Positions" msdata:parentkey="ID" msdata:childkey="UnitID" msprop:Generator_UserParentTable="Units" msprop:Generator_UserChildTable="Staff_Units_Positions" msprop:Generator_RelationVarName="relationFK_with_Units_on_UnitID" msprop:Generator_ChildPropName="GetStaff_Units_PositionsRows" msprop:Generator_UserRelationName="FK_with_Units_on_UnitID" msprop:Generator_ParentPropName="UnitsRow" />
     </xs:appinfo>
   </xs:annotation>
 </xs:schema>

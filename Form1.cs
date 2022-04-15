@@ -25,10 +25,13 @@ namespace HR_Control
             InitUnitTable();
             InitStaffTable();
             InitStaffArchiveTable();
+            InitStaffWithPositionAndUnitTable();
+            InitStaff_Units_PositionsTable();
 
             Configure_Staff_DataGridView();
             Configure_FirePanel_DataGridView();
             Configure_StaffArchivePanel_DataGridView();
+            Configure_TransferPanel_DataGridView();
 
             AddStafferPanel_TableSearchHandler();
 
@@ -56,6 +59,12 @@ namespace HR_Control
 
         private testDBDataSetTableAdapters.GetArchiveStaffDataTableAdapter GetArchiveStaffDataViewTableAdapter =
             new testDBDataSetTableAdapters.GetArchiveStaffDataTableAdapter();
+
+        private testDBDataSetTableAdapters.GetStaffWithPositionAndUnitTableAdapter staffWithPositionAndUnitTableAdapter =
+            new testDBDataSetTableAdapters.GetStaffWithPositionAndUnitTableAdapter();
+
+        private testDBDataSetTableAdapters.Staff_Units_PositionsTableAdapter Staff_Units_PositionsTableAdapter =
+            new testDBDataSetTableAdapters.Staff_Units_PositionsTableAdapter();
 
 
         private Panel prevOpenedPanel;
@@ -114,6 +123,26 @@ namespace HR_Control
             GetArchiveStaffDataViewTableAdapter.Fill(testDBDataSet.GetArchiveStaffData);
         }
 
+        private void InitStaffWithPositionAndUnitTable()
+        {
+            staffWithPositionAndUnitTableAdapter.ClearBeforeFill = true;
+
+            staffWithPositionAndUnitBindingSource.DataMember = "GetStaffWithPositionAndUnit";
+            staffWithPositionAndUnitBindingSource.DataSource = testDBDataSet;
+
+            staffWithPositionAndUnitTableAdapter.Fill(testDBDataSet.GetStaffWithPositionAndUnit);
+        }
+
+        private void InitStaff_Units_PositionsTable()
+        {
+            Staff_Units_PositionsTableAdapter.ClearBeforeFill = true;
+
+            //staffWithPositionAndUnitBindingSource.DataMember = "GetStaffWithPositionAndUnit";
+            //staffWithPositionAndUnitBindingSource.DataSource = testDBDataSet;
+
+            Staff_Units_PositionsTableAdapter.Fill(testDBDataSet.Staff_Units_Positions);
+        }
+
         private void Configure_Staff_DataGridView()
         {
             addStafferPanel_dataGridView.DataSource = staffBindingSource;
@@ -156,6 +185,27 @@ namespace HR_Control
             firePanel_dataGridView.Columns["HireDate"].HeaderText = "Дата приема";
         }
 
+        private void Configure_TransferPanel_DataGridView()
+        {
+            transferStafferPanel_dataGridView.DataSource = staffWithPositionAndUnitBindingSource;
+            //transferStafferPanel_dataGridView.Columns["FirstName"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            //transferStafferPanel_dataGridView.Columns["FirstName"].HeaderText = "Имя";
+            //transferStafferPanel_dataGridView.Columns["SecondName"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            //transferStafferPanel_dataGridView.Columns["SecondName"].HeaderText = "Фамилия";
+            //transferStafferPanel_dataGridView.Columns["Patronymic"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            //transferStafferPanel_dataGridView.Columns["Patronymic"].HeaderText = "Отчество";
+            //transferStafferPanel_dataGridView.Columns["PassportSeries"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            //transferStafferPanel_dataGridView.Columns["PassportSeries"].HeaderText = "Серия паспорта";
+            //transferStafferPanel_dataGridView.Columns["PassportNumber"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            //transferStafferPanel_dataGridView.Columns["PassportNumber"].HeaderText = "Номер паспорта";
+            //transferStafferPanel_dataGridView.Columns["HireDate"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            //transferStafferPanel_dataGridView.Columns["HireDate"].HeaderText = "Дата приема";
+            //transferStafferPanel_dataGridView.Columns["UnitName"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            //transferStafferPanel_dataGridView.Columns["UnitName"].HeaderText = "Отдел";
+            //transferStafferPanel_dataGridView.Columns["PositionName"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            //transferStafferPanel_dataGridView.Columns["PositionName"].HeaderText = "Должность";
+        }
+
         private void Configure_StaffArchivePanel_DataGridView()
         {
             staffArchive_dataGridView.DataSource = staffArchiveBindingSource;
@@ -175,6 +225,10 @@ namespace HR_Control
             staffArchive_dataGridView.Columns["Education"].HeaderText = "Образование";
             staffArchive_dataGridView.Columns["HireDate"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
             staffArchive_dataGridView.Columns["HireDate"].HeaderText = "Дата приема";
+            staffArchive_dataGridView.Columns["UnitName"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            staffArchive_dataGridView.Columns["UnitName"].HeaderText = "Отдел";
+            staffArchive_dataGridView.Columns["PositionName"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            staffArchive_dataGridView.Columns["PositionName"].HeaderText = "Должность";
         }
 
 
@@ -430,6 +484,41 @@ namespace HR_Control
             }
         }
 
+        private void transferStafferPanel_transfer_button_Click(object sender, EventArgs e)
+        {
+            using (SqlCommand cmd = new SqlCommand())
+            {
+                cmd.Connection = testDBConnection;
+
+                cmd.Parameters.Add("@passportSeries", SqlDbType.NVarChar, 4).Value =
+                    transferStafferPanel_passportSeries_textBox.Text;
+                cmd.Parameters.Add("@passportNumber", SqlDbType.NVarChar, 6).Value =
+                    transferStafferPanel_passportNumber_textBox.Text;
+                cmd.Parameters.Add("@positionId", SqlDbType.Int).Value = 
+                    int.Parse(transferStafferPanel_position_comboBox.SelectedValue.ToString());
+
+                cmd.CommandText = "update Staff_Units_Positions set PositionID = @positionId " +
+                    "where PassportSeries = @passportSeries and PassportNumber = @passportNumber";
+
+                testDBConnection.Open();
+                cmd.ExecuteNonQuery();
+                testDBConnection.Close();
+
+                Staff_Units_PositionsTableAdapter.Update(testDBDataSet.Staff_Units_Positions);
+                staffWithPositionAndUnitTableAdapter.Fill(this.testDBDataSet.GetStaffWithPositionAndUnit);
+
+                var myThread = new Thread(() =>
+                {
+                    Thread.Sleep(1500);
+                    transferStafferPanel_saved_label.Visible = false;
+
+                });
+
+                transferStafferPanel_saved_label.Visible = true;
+                myThread.Start();
+            }
+        }
+
         private void Form1_Load(object sender, EventArgs e)
         {
             // TODO: This line of code loads data into the 'testDBDataSet1.Units' table. You can move, or remove it, as needed.
@@ -448,11 +537,15 @@ namespace HR_Control
         }
 
         private Thread staffTableSearchThread;
-        DataTable addStafferPanelSearchTable = new DataTable();
-        DataTable fireStafferPanelSearchTable = new DataTable();
+        private Thread staffWith_P_and_U_TableSearchThread;
+
+        private DataTable addStafferPanelSearchTable = new DataTable();
+        private DataTable fireStafferPanelSearchTable = new DataTable();
+        private DataTable transferStafferPanelSearchTable = new DataTable();
 
         private void InitSearchInStaffTableThread(string firstName, string secondName, string patronymic,
-            string passportSeries, string passportNumber, DataTable searchTable, DataGridView dataGridView)
+            string passportSeries, string passportNumber, DataTable searchTable, DataGridView dataGridView,
+            BindingSource bindingSource)
         {
             staffTableSearchThread = new Thread(() =>
             {
@@ -494,42 +587,92 @@ namespace HR_Control
                 var dataRows = testDBDataSet.Staff.Select(searchString);
 
                 if (dataRows.Count() > 0)
-                    searchTable = dataRows.CopyToDataTable();
-                else
-                    searchTable.Clear();
-                
-
-                this.Invoke((MethodInvoker)delegate
                 {
-                    dataGridView.DataSource = searchTable;
-                    dataGridView.Update();
-                });
+                    searchTable = dataRows.CopyToDataTable();
+                    this.Invoke((MethodInvoker)delegate
+                    {
+                        dataGridView.DataSource = searchTable;
+                        dataGridView.Update();
+                    });
+                }
+
+                else
+                {
+                    searchTable.Clear();
+                    this.Invoke((MethodInvoker)delegate
+                    {
+                        dataGridView.DataSource = bindingSource;
+                        dataGridView.Update();
+                    });
+                }
+                
             });
         }
 
-        private void secondName_textBox_TextChanged(object sender, EventArgs e)
+        private void InitSearchInStaffWith_P_and_U_TableThread(string firstName, string secondName, string patronymic,
+            string passportSeries, string passportNumber, DataTable searchTable, DataGridView dataGridView,
+            BindingSource bindingSource)
         {
-            AddStafferPanel_TableSearchHandler();
-        }
+            staffWith_P_and_U_TableSearchThread = new Thread(() =>
+            {
+                Thread.Sleep(1000);
 
-        private void firstName_textBox_TextChanged(object sender, EventArgs e)
-        {
-            AddStafferPanel_TableSearchHandler();
-        }
+                var searchString = "";
 
-        private void patronymic_textBox_TextChanged(object sender, EventArgs e)
-        {
-            AddStafferPanel_TableSearchHandler();
-        }
+                if (secondName != "")
+                {
+                    if (searchString != "")
+                        searchString += "and ";
+                    searchString = "Фамилия like '" + secondName + "%' ";
+                }
+                if (firstName != "")
+                {
+                    if (searchString != "")
+                        searchString += "and ";
+                    searchString += "Имя like '" + firstName + "%' ";
+                }
+                if (patronymic != "")
+                {
+                    if (searchString != "")
+                        searchString += "and ";
+                    searchString += "Отчествов like '" + patronymic + "%' ";
+                }
+                if (passportSeries != "")
+                {
+                    if (searchString != "")
+                        searchString += "and ";
+                    searchString += "[Серия паспорта] like '" + passportSeries + "%' ";
+                }
+                if (passportNumber != "")
+                {
+                    if (searchString != "")
+                        searchString += "and ";
+                    searchString += "[Номер паспорта] like '" + passportNumber + "%' ";
+                }
 
-        private void passportSeries_textBox_TextChanged(object sender, EventArgs e)
-        {
-            AddStafferPanel_TableSearchHandler();
-        }
+                var dataRows = testDBDataSet.GetStaffWithPositionAndUnit.Select(searchString);
 
-        private void passportNumber_textBox_TextChanged(object sender, EventArgs e)
-        {
-            AddStafferPanel_TableSearchHandler();
+                if (dataRows.Count() > 0)
+                {
+                    searchTable = dataRows.CopyToDataTable();
+                    this.Invoke((MethodInvoker)delegate
+                    {
+                        dataGridView.DataSource = searchTable;
+                        dataGridView.Update();
+                    });
+                }
+
+                else
+                {
+                    searchTable.Clear();
+                    this.Invoke((MethodInvoker)delegate
+                    {
+                        dataGridView.DataSource = bindingSource;
+                        dataGridView.Update();
+                    });
+                }
+
+            });
         }
 
         private void AddStafferPanel_TableSearchHandler()
@@ -542,7 +685,8 @@ namespace HR_Control
                 addStafferPanel_passportSeries_textBox.Text,
                 addStafferPanel_passportNumber_textBox.Text,
                 addStafferPanelSearchTable,
-                addStafferPanel_dataGridView
+                addStafferPanel_dataGridView,
+                staffBindingSource
                 );
             staffTableSearchThread.Start();
         }
@@ -557,9 +701,27 @@ namespace HR_Control
                 firePanel_passportSeries_textBox.Text,
                 firePanel_passportNumber_textBox.Text,
                 fireStafferPanelSearchTable,
-                firePanel_dataGridView
+                firePanel_dataGridView,
+                staffBindingSource
                 );
             staffTableSearchThread.Start();
+        }
+
+        private void TransferStafferPanel_TableSearchHandler()
+        {
+            if (staffWith_P_and_U_TableSearchThread != null && staffWith_P_and_U_TableSearchThread.IsAlive)
+                staffWith_P_and_U_TableSearchThread.Abort();
+            InitSearchInStaffWith_P_and_U_TableThread(
+                transferStafferPanel_firstName_textBox.Text,
+                transferStafferPanel_secondName_textBox.Text,
+                transferStafferPanel_patronymic_textBox.Text,
+                transferStafferPanel_passportSeries_textBox.Text,
+                transferStafferPanel_passportNumber_textBox.Text,
+                transferStafferPanelSearchTable,
+                transferStafferPanel_dataGridView,
+                staffWithPositionAndUnitBindingSource
+                );
+            staffWith_P_and_U_TableSearchThread.Start();
         }
 
         #region ToolStripMenu click handlers
@@ -587,6 +749,7 @@ namespace HR_Control
         private void transferStaffer_ToolStripMenuItem_Click(object sender, EventArgs e)
         {
             ChangePanelVisibility(transferStafferPanel);
+            staffWithPositionAndUnitTableAdapter.Fill(this.testDBDataSet.GetStaffWithPositionAndUnit);
         }
 
         private void staffArchiveToolStripMenuItem_Click(object sender, EventArgs e)
@@ -621,6 +784,27 @@ namespace HR_Control
             }
         }
 
+        private void transferStafferPanel_dataGridView_SelectionChanged(object sender, EventArgs e)
+        {
+            if (transferStafferPanel_dataGridView.SelectedCells.Count > 0 && transferStafferPanel_fillTextBoxes_checkBox.Checked)
+            {
+                transferStafferPanel_firstName_textBox.Text =
+                    transferStafferPanel_dataGridView.SelectedCells[0].OwningRow.Cells["Имя"].Value.ToString();
+                transferStafferPanel_secondName_textBox.Text =
+                    transferStafferPanel_dataGridView.SelectedCells[0].OwningRow.Cells["Фамилия"].Value.ToString();
+                transferStafferPanel_patronymic_textBox.Text =
+                    transferStafferPanel_dataGridView.SelectedCells[0].OwningRow.Cells["Отчествов"].Value.ToString();
+
+                transferStafferPanel_passportSeries_textBox.Text =
+                    transferStafferPanel_dataGridView.SelectedCells[0].OwningRow.Cells["Серия паспорта"].Value.ToString();
+                transferStafferPanel_passportNumber_textBox.Text =
+                    transferStafferPanel_dataGridView.SelectedCells[0].OwningRow.Cells["Номер паспорта"].Value.ToString();
+
+                transferStafferPanel_position_comboBox.Text =
+                    transferStafferPanel_dataGridView.SelectedCells[0].OwningRow.Cells["Должность"].Value.ToString();
+            }
+        }
+
         private void FirePanel_fillTextBoxes_checkcBox_CheckedChanged(object sender, EventArgs e)
         {
             if (firePanel_fillTextBoxes_checkcBox.Checked)
@@ -636,6 +820,50 @@ namespace HR_Control
                 firePanel_passportSeries_textBox.Clear();
                 firePanel_passportNumber_textBox.Clear();
             }
+        }
+
+        private void transferStafferPanel_fillTextBoxes_checkBox_CheckedChanged(object sender, EventArgs e)
+        {
+            if (transferStafferPanel_fillTextBoxes_checkBox.Checked)
+            {
+                transferStafferPanel_dataGridView_SelectionChanged(this, new EventArgs());
+            }
+            else
+            {
+                transferStafferPanel_firstName_textBox.Clear();
+                transferStafferPanel_secondName_textBox.Clear();
+                transferStafferPanel_patronymic_textBox.Clear();
+
+                transferStafferPanel_passportSeries_textBox.Clear();
+                transferStafferPanel_passportNumber_textBox.Clear();
+            }
+        }
+
+        #region TextBoxes TextChanged Handlers
+
+        private void secondName_textBox_TextChanged(object sender, EventArgs e)
+        {
+            AddStafferPanel_TableSearchHandler();
+        }
+
+        private void firstName_textBox_TextChanged(object sender, EventArgs e)
+        {
+            AddStafferPanel_TableSearchHandler();
+        }
+
+        private void patronymic_textBox_TextChanged(object sender, EventArgs e)
+        {
+            AddStafferPanel_TableSearchHandler();
+        }
+
+        private void passportSeries_textBox_TextChanged(object sender, EventArgs e)
+        {
+            AddStafferPanel_TableSearchHandler();
+        }
+
+        private void passportNumber_textBox_TextChanged(object sender, EventArgs e)
+        {
+            AddStafferPanel_TableSearchHandler();
         }
 
         private void firePanel_secondName_textBox_TextChanged(object sender, EventArgs e)
@@ -662,5 +890,34 @@ namespace HR_Control
         {
             FireStafferPanel_TableSearchHandler();
         }
+
+        private void transferStafferPanel_secondName_textBox_TextChanged(object sender, EventArgs e)
+        {
+            TransferStafferPanel_TableSearchHandler();
+        }
+
+        private void transferStafferPanel_firstName_textBox_TextChanged(object sender, EventArgs e)
+        {
+            TransferStafferPanel_TableSearchHandler();
+        }
+
+        private void transferStafferPanel_patronymic_textBox_TextChanged(object sender, EventArgs e)
+        {
+            TransferStafferPanel_TableSearchHandler();
+        }
+
+        private void transferStafferPanel_passportSeries_textBox_TextChanged(object sender, EventArgs e)
+        {
+            TransferStafferPanel_TableSearchHandler();
+        }
+
+        private void transferStafferPanel_passportNumber_textBox_TextChanged(object sender, EventArgs e)
+        {
+            TransferStafferPanel_TableSearchHandler();
+        }
+
+        #endregion
+
+        
     }
 }
