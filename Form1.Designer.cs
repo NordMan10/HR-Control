@@ -120,6 +120,22 @@
             this.fireStaffer_ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.transferStaffer_ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.staffArchiveToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.staffArchive_panel = new System.Windows.Forms.Panel();
+            this.staffArchive_dataGridView = new System.Windows.Forms.DataGridView();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.label10 = new System.Windows.Forms.Label();
+            this.textBox6 = new System.Windows.Forms.TextBox();
+            this.label11 = new System.Windows.Forms.Label();
+            this.textBox7 = new System.Windows.Forms.TextBox();
+            this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.label12 = new System.Windows.Forms.Label();
+            this.label13 = new System.Windows.Forms.Label();
+            this.textBox8 = new System.Windows.Forms.TextBox();
+            this.textBox9 = new System.Windows.Forms.TextBox();
+            this.label14 = new System.Windows.Forms.Label();
+            this.textBox10 = new System.Windows.Forms.TextBox();
+            this.staffArchivePanel_header_label = new System.Windows.Forms.Label();
+            this.button6 = new System.Windows.Forms.Button();
             this.transferStafferPanel = new System.Windows.Forms.Panel();
             this.transferStafferPanel_position_comboBox = new System.Windows.Forms.ComboBox();
             this.transferStafferPanel_position_label = new System.Windows.Forms.Label();
@@ -142,22 +158,6 @@
             this.transferStafferPanel_transfer_button = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
-            this.staffArchive_panel = new System.Windows.Forms.Panel();
-            this.staffArchive_dataGridView = new System.Windows.Forms.DataGridView();
-            this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.label10 = new System.Windows.Forms.Label();
-            this.textBox6 = new System.Windows.Forms.TextBox();
-            this.label11 = new System.Windows.Forms.Label();
-            this.textBox7 = new System.Windows.Forms.TextBox();
-            this.groupBox4 = new System.Windows.Forms.GroupBox();
-            this.label12 = new System.Windows.Forms.Label();
-            this.label13 = new System.Windows.Forms.Label();
-            this.textBox8 = new System.Windows.Forms.TextBox();
-            this.textBox9 = new System.Windows.Forms.TextBox();
-            this.label14 = new System.Windows.Forms.Label();
-            this.textBox10 = new System.Windows.Forms.TextBox();
-            this.staffArchivePanel_header_label = new System.Windows.Forms.Label();
-            this.button6 = new System.Windows.Forms.Button();
             this.unitsBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.staffBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.staffArchiveBindingSource = new System.Windows.Forms.BindingSource(this.components);
@@ -187,14 +187,14 @@
             ((System.ComponentModel.ISupportInitialize)(this.testDBDataSet1)).BeginInit();
             this.main_panel.SuspendLayout();
             this.mainPanel_menuStrip.SuspendLayout();
-            this.transferStafferPanel.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.transferStafferPanel_dataGridView)).BeginInit();
-            this.groupBox1.SuspendLayout();
-            this.groupBox2.SuspendLayout();
             this.staffArchive_panel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.staffArchive_dataGridView)).BeginInit();
             this.groupBox3.SuspendLayout();
             this.groupBox4.SuspendLayout();
+            this.transferStafferPanel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.transferStafferPanel_dataGridView)).BeginInit();
+            this.groupBox1.SuspendLayout();
+            this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.unitsBindingSource1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.staffBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.staffArchiveBindingSource)).BeginInit();
@@ -1068,6 +1068,156 @@
             this.staffArchiveToolStripMenuItem.Text = "Архив сотрудников";
             this.staffArchiveToolStripMenuItem.Click += new System.EventHandler(this.staffArchiveToolStripMenuItem_Click);
             // 
+            // staffArchive_panel
+            // 
+            this.staffArchive_panel.Controls.Add(this.staffArchive_dataGridView);
+            this.staffArchive_panel.Controls.Add(this.groupBox3);
+            this.staffArchive_panel.Controls.Add(this.groupBox4);
+            this.staffArchive_panel.Controls.Add(this.staffArchivePanel_header_label);
+            this.staffArchive_panel.Controls.Add(this.button6);
+            this.staffArchive_panel.Location = new System.Drawing.Point(0, 2);
+            this.staffArchive_panel.Name = "staffArchive_panel";
+            this.staffArchive_panel.Size = new System.Drawing.Size(964, 689);
+            this.staffArchive_panel.TabIndex = 20;
+            this.staffArchive_panel.Visible = false;
+            // 
+            // staffArchive_dataGridView
+            // 
+            this.staffArchive_dataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.staffArchive_dataGridView.Location = new System.Drawing.Point(43, 322);
+            this.staffArchive_dataGridView.Name = "staffArchive_dataGridView";
+            this.staffArchive_dataGridView.RowHeadersWidth = 51;
+            this.staffArchive_dataGridView.RowTemplate.Height = 24;
+            this.staffArchive_dataGridView.Size = new System.Drawing.Size(881, 271);
+            this.staffArchive_dataGridView.TabIndex = 11;
+            // 
+            // groupBox3
+            // 
+            this.groupBox3.Controls.Add(this.label10);
+            this.groupBox3.Controls.Add(this.textBox6);
+            this.groupBox3.Controls.Add(this.label11);
+            this.groupBox3.Controls.Add(this.textBox7);
+            this.groupBox3.Location = new System.Drawing.Point(418, 122);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Size = new System.Drawing.Size(506, 68);
+            this.groupBox3.TabIndex = 10;
+            this.groupBox3.TabStop = false;
+            this.groupBox3.Text = "Данные паспорта:";
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(235, 28);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(53, 16);
+            this.label10.TabIndex = 2;
+            this.label10.Text = "Номер:";
+            // 
+            // textBox6
+            // 
+            this.textBox6.Location = new System.Drawing.Point(299, 25);
+            this.textBox6.Name = "textBox6";
+            this.textBox6.Size = new System.Drawing.Size(142, 22);
+            this.textBox6.TabIndex = 3;
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(26, 28);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(50, 16);
+            this.label11.TabIndex = 0;
+            this.label11.Text = "Серия:";
+            // 
+            // textBox7
+            // 
+            this.textBox7.Location = new System.Drawing.Point(94, 25);
+            this.textBox7.Name = "textBox7";
+            this.textBox7.Size = new System.Drawing.Size(108, 22);
+            this.textBox7.TabIndex = 1;
+            // 
+            // groupBox4
+            // 
+            this.groupBox4.Controls.Add(this.label12);
+            this.groupBox4.Controls.Add(this.label13);
+            this.groupBox4.Controls.Add(this.textBox8);
+            this.groupBox4.Controls.Add(this.textBox9);
+            this.groupBox4.Controls.Add(this.label14);
+            this.groupBox4.Controls.Add(this.textBox10);
+            this.groupBox4.Location = new System.Drawing.Point(43, 121);
+            this.groupBox4.Name = "groupBox4";
+            this.groupBox4.Size = new System.Drawing.Size(320, 165);
+            this.groupBox4.TabIndex = 9;
+            this.groupBox4.TabStop = false;
+            this.groupBox4.Text = "ФИО";
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Location = new System.Drawing.Point(22, 115);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(73, 16);
+            this.label12.TabIndex = 6;
+            this.label12.Text = "Отчество:";
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Location = new System.Drawing.Point(26, 72);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(36, 16);
+            this.label13.TabIndex = 2;
+            this.label13.Text = "Имя:";
+            // 
+            // textBox8
+            // 
+            this.textBox8.Location = new System.Drawing.Point(110, 112);
+            this.textBox8.Name = "textBox8";
+            this.textBox8.Size = new System.Drawing.Size(180, 22);
+            this.textBox8.TabIndex = 7;
+            // 
+            // textBox9
+            // 
+            this.textBox9.Location = new System.Drawing.Point(110, 69);
+            this.textBox9.Name = "textBox9";
+            this.textBox9.Size = new System.Drawing.Size(180, 22);
+            this.textBox9.TabIndex = 3;
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Location = new System.Drawing.Point(26, 28);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(69, 16);
+            this.label14.TabIndex = 0;
+            this.label14.Text = "Фамилия:";
+            // 
+            // textBox10
+            // 
+            this.textBox10.Location = new System.Drawing.Point(110, 25);
+            this.textBox10.Name = "textBox10";
+            this.textBox10.Size = new System.Drawing.Size(180, 22);
+            this.textBox10.TabIndex = 1;
+            // 
+            // staffArchivePanel_header_label
+            // 
+            this.staffArchivePanel_header_label.AutoSize = true;
+            this.staffArchivePanel_header_label.Font = new System.Drawing.Font("Palatino Linotype", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.staffArchivePanel_header_label.Location = new System.Drawing.Point(377, 54);
+            this.staffArchivePanel_header_label.Name = "staffArchivePanel_header_label";
+            this.staffArchivePanel_header_label.Size = new System.Drawing.Size(209, 27);
+            this.staffArchivePanel_header_label.TabIndex = 7;
+            this.staffArchivePanel_header_label.Text = "Архив сотрудников";
+            // 
+            // button6
+            // 
+            this.button6.Location = new System.Drawing.Point(839, 626);
+            this.button6.Name = "button6";
+            this.button6.Size = new System.Drawing.Size(93, 29);
+            this.button6.TabIndex = 4;
+            this.button6.Text = "Назад";
+            this.button6.UseVisualStyleBackColor = true;
+            // 
             // transferStafferPanel
             // 
             this.transferStafferPanel.Controls.Add(this.transferStafferPanel_position_comboBox);
@@ -1291,156 +1441,6 @@
             this.button3.Text = "Назад";
             this.button3.UseVisualStyleBackColor = true;
             // 
-            // staffArchive_panel
-            // 
-            this.staffArchive_panel.Controls.Add(this.staffArchive_dataGridView);
-            this.staffArchive_panel.Controls.Add(this.groupBox3);
-            this.staffArchive_panel.Controls.Add(this.groupBox4);
-            this.staffArchive_panel.Controls.Add(this.staffArchivePanel_header_label);
-            this.staffArchive_panel.Controls.Add(this.button6);
-            this.staffArchive_panel.Location = new System.Drawing.Point(0, 2);
-            this.staffArchive_panel.Name = "staffArchive_panel";
-            this.staffArchive_panel.Size = new System.Drawing.Size(964, 689);
-            this.staffArchive_panel.TabIndex = 20;
-            this.staffArchive_panel.Visible = false;
-            // 
-            // staffArchive_dataGridView
-            // 
-            this.staffArchive_dataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.staffArchive_dataGridView.Location = new System.Drawing.Point(43, 322);
-            this.staffArchive_dataGridView.Name = "staffArchive_dataGridView";
-            this.staffArchive_dataGridView.RowHeadersWidth = 51;
-            this.staffArchive_dataGridView.RowTemplate.Height = 24;
-            this.staffArchive_dataGridView.Size = new System.Drawing.Size(881, 271);
-            this.staffArchive_dataGridView.TabIndex = 11;
-            // 
-            // groupBox3
-            // 
-            this.groupBox3.Controls.Add(this.label10);
-            this.groupBox3.Controls.Add(this.textBox6);
-            this.groupBox3.Controls.Add(this.label11);
-            this.groupBox3.Controls.Add(this.textBox7);
-            this.groupBox3.Location = new System.Drawing.Point(418, 122);
-            this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(506, 68);
-            this.groupBox3.TabIndex = 10;
-            this.groupBox3.TabStop = false;
-            this.groupBox3.Text = "Данные паспорта:";
-            // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(235, 28);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(53, 16);
-            this.label10.TabIndex = 2;
-            this.label10.Text = "Номер:";
-            // 
-            // textBox6
-            // 
-            this.textBox6.Location = new System.Drawing.Point(299, 25);
-            this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(142, 22);
-            this.textBox6.TabIndex = 3;
-            // 
-            // label11
-            // 
-            this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(26, 28);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(50, 16);
-            this.label11.TabIndex = 0;
-            this.label11.Text = "Серия:";
-            // 
-            // textBox7
-            // 
-            this.textBox7.Location = new System.Drawing.Point(94, 25);
-            this.textBox7.Name = "textBox7";
-            this.textBox7.Size = new System.Drawing.Size(108, 22);
-            this.textBox7.TabIndex = 1;
-            // 
-            // groupBox4
-            // 
-            this.groupBox4.Controls.Add(this.label12);
-            this.groupBox4.Controls.Add(this.label13);
-            this.groupBox4.Controls.Add(this.textBox8);
-            this.groupBox4.Controls.Add(this.textBox9);
-            this.groupBox4.Controls.Add(this.label14);
-            this.groupBox4.Controls.Add(this.textBox10);
-            this.groupBox4.Location = new System.Drawing.Point(43, 121);
-            this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(320, 165);
-            this.groupBox4.TabIndex = 9;
-            this.groupBox4.TabStop = false;
-            this.groupBox4.Text = "ФИО";
-            // 
-            // label12
-            // 
-            this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(22, 115);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(73, 16);
-            this.label12.TabIndex = 6;
-            this.label12.Text = "Отчество:";
-            // 
-            // label13
-            // 
-            this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(26, 72);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(36, 16);
-            this.label13.TabIndex = 2;
-            this.label13.Text = "Имя:";
-            // 
-            // textBox8
-            // 
-            this.textBox8.Location = new System.Drawing.Point(110, 112);
-            this.textBox8.Name = "textBox8";
-            this.textBox8.Size = new System.Drawing.Size(180, 22);
-            this.textBox8.TabIndex = 7;
-            // 
-            // textBox9
-            // 
-            this.textBox9.Location = new System.Drawing.Point(110, 69);
-            this.textBox9.Name = "textBox9";
-            this.textBox9.Size = new System.Drawing.Size(180, 22);
-            this.textBox9.TabIndex = 3;
-            // 
-            // label14
-            // 
-            this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(26, 28);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(69, 16);
-            this.label14.TabIndex = 0;
-            this.label14.Text = "Фамилия:";
-            // 
-            // textBox10
-            // 
-            this.textBox10.Location = new System.Drawing.Point(110, 25);
-            this.textBox10.Name = "textBox10";
-            this.textBox10.Size = new System.Drawing.Size(180, 22);
-            this.textBox10.TabIndex = 1;
-            // 
-            // staffArchivePanel_header_label
-            // 
-            this.staffArchivePanel_header_label.AutoSize = true;
-            this.staffArchivePanel_header_label.Font = new System.Drawing.Font("Palatino Linotype", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.staffArchivePanel_header_label.Location = new System.Drawing.Point(377, 54);
-            this.staffArchivePanel_header_label.Name = "staffArchivePanel_header_label";
-            this.staffArchivePanel_header_label.Size = new System.Drawing.Size(209, 27);
-            this.staffArchivePanel_header_label.TabIndex = 7;
-            this.staffArchivePanel_header_label.Text = "Архив сотрудников";
-            // 
-            // button6
-            // 
-            this.button6.Location = new System.Drawing.Point(839, 626);
-            this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(93, 29);
-            this.button6.TabIndex = 4;
-            this.button6.Text = "Назад";
-            this.button6.UseVisualStyleBackColor = true;
-            // 
             // unitsBindingSource1
             // 
             this.unitsBindingSource1.DataMember = "Units";
@@ -1511,13 +1511,6 @@
             this.main_panel.PerformLayout();
             this.mainPanel_menuStrip.ResumeLayout(false);
             this.mainPanel_menuStrip.PerformLayout();
-            this.transferStafferPanel.ResumeLayout(false);
-            this.transferStafferPanel.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.transferStafferPanel_dataGridView)).EndInit();
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
-            this.groupBox2.ResumeLayout(false);
-            this.groupBox2.PerformLayout();
             this.staffArchive_panel.ResumeLayout(false);
             this.staffArchive_panel.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.staffArchive_dataGridView)).EndInit();
@@ -1525,6 +1518,13 @@
             this.groupBox3.PerformLayout();
             this.groupBox4.ResumeLayout(false);
             this.groupBox4.PerformLayout();
+            this.transferStafferPanel.ResumeLayout(false);
+            this.transferStafferPanel.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.transferStafferPanel_dataGridView)).EndInit();
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
+            this.groupBox2.ResumeLayout(false);
+            this.groupBox2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.unitsBindingSource1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.staffBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.staffArchiveBindingSource)).EndInit();
@@ -1607,14 +1607,18 @@
         //private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
         private System.Windows.Forms.Panel main_panel;
         private System.Windows.Forms.DataGridView unitsDataGridView;
+
         private System.Windows.Forms.DataGridView addStafferPanel_dataGridView;
+
         private System.Windows.Forms.BindingSource unitsBindingSource1;
         private testDBDataSetTableAdapters.UnitsTableAdapter unitsTableAdapter1;
         private testDBDataSetTableAdapters.TableAdapterManager tableAdapterManager;
 
         private System.Windows.Forms.BindingSource positionsBindingSource;
         private System.Windows.Forms.BindingSource unitsBindingSource;
+
         private System.Windows.Forms.BindingSource staffBindingSource;
+
         private System.Windows.Forms.BindingSource staffArchiveBindingSource;
         private System.Windows.Forms.BindingSource staffWithPositionAndUnitBindingSource;
 

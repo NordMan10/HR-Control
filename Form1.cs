@@ -85,11 +85,10 @@ namespace HR_Control
 
         private void InitStaffTable()
         {
-            staffTableAdapter.ClearBeforeFill = true;
-
             staffBindingSource.DataMember = "Staff";
             staffBindingSource.DataSource = testDBDataSet;
 
+            staffTableAdapter.ClearBeforeFill = true;
             staffTableAdapter.Fill(testDBDataSet.Staff);
         }
 
@@ -146,7 +145,6 @@ namespace HR_Control
         private void InitStaff_Units_PositionsTable()
         {
             Staff_Units_PositionsTableAdapter.ClearBeforeFill = true;
-
             Staff_Units_PositionsTableAdapter.Fill(testDBDataSet.Staff_Units_Positions);
         }
 
@@ -159,6 +157,7 @@ namespace HR_Control
         private void Configure_Staff_DataGridView()
         {
             addStafferPanel_dataGridView.DataSource = staffBindingSource;
+
             addStafferPanel_dataGridView.Columns["FirstName"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
             addStafferPanel_dataGridView.Columns["FirstName"].HeaderText = "Имя";
             addStafferPanel_dataGridView.Columns["SecondName"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
@@ -289,17 +288,14 @@ namespace HR_Control
         {
             using (SqlCommand cmdStaff = new SqlCommand())
             using (SqlCommand cmdStaff_Units_Positions = new SqlCommand())
-            using (SqlCommand cmdStaff_Units = new SqlCommand())
             {
                 Set_Staff_Command(cmdStaff);
                 Set_Staff_Units_Positions_Command(cmdStaff_Units_Positions);
-                //Set_Staff_Units_Command(cmdStaff_Units);
 
                 testDBConnection.Open();
 
                 cmdStaff.ExecuteNonQuery();
                 cmdStaff_Units_Positions.ExecuteNonQuery();
-                //cmdStaff_Units.ExecuteNonQuery();
 
                 staffTableAdapter.Update(testDBDataSet.Staff);
                 staffTableAdapter.Fill(testDBDataSet.Staff);
@@ -372,7 +368,8 @@ namespace HR_Control
             {
                 cmd.Connection = testDBConnection;
 
-                cmd.Parameters.Add("@name", SqlDbType.NVarChar, 50).Value = unitName_textBox.Text;
+                cmd.Parameters.Add("@name", SqlDbType.NVarChar, 50).Value = 
+                    unitName_textBox.Text;
 
                 cmd.CommandText = "insert into Units " +
                     "(Name) " + "values (@name)";
@@ -402,8 +399,10 @@ namespace HR_Control
             {
                 cmd.Connection = testDBConnection;
 
-                cmd.Parameters.Add("@passportSeries", SqlDbType.NVarChar, 4).Value = firePanel_passportSeries_textBox.Text;
-                cmd.Parameters.Add("@passportNumber", SqlDbType.NVarChar, 6).Value = firePanel_passportNumber_textBox.Text;
+                cmd.Parameters.Add("@passportSeries", SqlDbType.NVarChar, 4).Value = 
+                    firePanel_passportSeries_textBox.Text;
+                cmd.Parameters.Add("@passportNumber", SqlDbType.NVarChar, 6).Value = 
+                    firePanel_passportNumber_textBox.Text;
 
                 cmd.CommandText = "delete from Staff " +
                     "where PassportSeries = @passportSeries and PassportNumber = @passportNumber";
@@ -416,6 +415,9 @@ namespace HR_Control
                 staffTableAdapter.Fill(testDBDataSet.Staff);
 
                 firePanel_dataGridView.DataSource = staffBindingSource;
+                addStafferPanel_dataGridView.DataSource = staffBindingSource;
+
+                firePanel_fillTextBoxes_checkcBox.Checked = false;
 
                 ClearFireStafferTextBoxes();
 
@@ -454,6 +456,8 @@ namespace HR_Control
                 Staff_Units_PositionsTableAdapter.Update(testDBDataSet.Staff_Units_Positions);
                 staffWithPositionAndUnitTableAdapter.Fill(this.testDBDataSet.GetStaffWithPositionAndUnit);
 
+                transferStafferPanel_fillTextBoxes_checkBox.Checked = false;
+
                 var myThread = new Thread(() =>
                 {
                     Thread.Sleep(1500);
@@ -470,17 +474,26 @@ namespace HR_Control
         {
             cmdStaff.Connection = testDBConnection;
 
-            cmdStaff.Parameters.Add("@firstName", SqlDbType.NVarChar, 30).Value = addStafferPanel_firstName_textBox.Text;
-            cmdStaff.Parameters.Add("@secondName", SqlDbType.NVarChar, 30).Value = addStafferPanel_secondName_textBox.Text;
-            cmdStaff.Parameters.Add("@patronymic", SqlDbType.NVarChar, 30).Value = addStafferPanel_patronymic_textBox.Text;
-            cmdStaff.Parameters.Add("@passportSeries", SqlDbType.NVarChar, 4).Value = addStafferPanel_passportSeries_textBox.Text;
-            cmdStaff.Parameters.Add("@passportNumber", SqlDbType.NVarChar, 6).Value = addStafferPanel_passportNumber_textBox.Text;
-            cmdStaff.Parameters.Add("@birthDate", SqlDbType.Date).Value = addStafferPanel_birthDate_dateTimePicker.Value.Date;
-            cmdStaff.Parameters.Add("@education", SqlDbType.NVarChar, 50).Value = addStafferPanel_education_textBox.Text;
-            cmdStaff.Parameters.Add("@hireDate", SqlDbType.Date).Value = addStafferPanel_hireDate_dateTimePicker.Value.Date;
+            cmdStaff.Parameters.Add("@firstName", SqlDbType.NVarChar, 30).Value = 
+                addStafferPanel_firstName_textBox.Text;
+            cmdStaff.Parameters.Add("@secondName", SqlDbType.NVarChar, 30).Value = 
+                addStafferPanel_secondName_textBox.Text;
+            cmdStaff.Parameters.Add("@patronymic", SqlDbType.NVarChar, 30).Value = 
+                addStafferPanel_patronymic_textBox.Text;
+            cmdStaff.Parameters.Add("@passportSeries", SqlDbType.NVarChar, 4).Value = 
+                addStafferPanel_passportSeries_textBox.Text;
+            cmdStaff.Parameters.Add("@passportNumber", SqlDbType.NVarChar, 6).Value = 
+                addStafferPanel_passportNumber_textBox.Text;
+            cmdStaff.Parameters.Add("@birthDate", SqlDbType.Date).Value = 
+                addStafferPanel_birthDate_dateTimePicker.Value.Date;
+            cmdStaff.Parameters.Add("@education", SqlDbType.NVarChar, 50).Value = 
+                addStafferPanel_education_textBox.Text;
+            cmdStaff.Parameters.Add("@hireDate", SqlDbType.Date).Value = 
+                addStafferPanel_hireDate_dateTimePicker.Value.Date;
 
             cmdStaff.CommandText = "insert into Staff " +
-                "(FirstName, SecondName, Patronymic, PassportSeries, PassportNumber, BirthDate, Education, HireDate) " +
+                "(FirstName, SecondName, Patronymic, PassportSeries, PassportNumber, " +
+                "BirthDate, Education, HireDate) " +
                 "values (@firstName, @secondName, @patronymic, @passportSeries," +
                 "@passportNumber, @birthDate, @education, @hireDate)";
         }
@@ -673,7 +686,9 @@ namespace HR_Control
 
         private void AddStafferPanel_TableSearchHandler()
         {
-            if (staffTableSearchThread != null && staffTableSearchThread.IsAlive) staffTableSearchThread.Abort();
+            if (staffTableSearchThread != null && staffTableSearchThread.IsAlive) 
+                staffTableSearchThread.Abort();
+
             InitSearchInStaffTableThread(
                 addStafferPanel_firstName_textBox.Text,
                 addStafferPanel_secondName_textBox.Text,
@@ -754,6 +769,7 @@ namespace HR_Control
 
         private void staffArchiveToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            GetArchiveStaffDataViewTableAdapter.Fill(testDBDataSet.GetArchiveStaffData);
             ChangePanelVisibility(staffArchive_panel);
         }
 

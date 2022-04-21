@@ -1510,10 +1510,6 @@ namespace HR_Control {
             
             private global::System.Data.DataColumn columnHireDate;
             
-            private global::System.Data.DataColumn columnPositionName;
-            
-            private global::System.Data.DataColumn columnUnitName;
-            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public Staff_ArchiveDataTable() {
@@ -1613,22 +1609,6 @@ namespace HR_Control {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public global::System.Data.DataColumn PositionNameColumn {
-                get {
-                    return this.columnPositionName;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public global::System.Data.DataColumn UnitNameColumn {
-                get {
-                    return this.columnUnitName;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -1664,7 +1644,7 @@ namespace HR_Control {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public Staff_ArchiveRow AddStaff_ArchiveRow(string FirstName, string SecondName, string Patronymic, string PassportSeries, string PassportNumber, System.DateTime BirthDate, string Education, System.DateTime HireDate, string PositionName, string UnitName) {
+            public Staff_ArchiveRow AddStaff_ArchiveRow(string FirstName, string SecondName, string Patronymic, string PassportSeries, string PassportNumber, System.DateTime BirthDate, string Education, System.DateTime HireDate) {
                 Staff_ArchiveRow rowStaff_ArchiveRow = ((Staff_ArchiveRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         FirstName,
@@ -1674,9 +1654,7 @@ namespace HR_Control {
                         PassportNumber,
                         BirthDate,
                         Education,
-                        HireDate,
-                        PositionName,
-                        UnitName};
+                        HireDate};
                 rowStaff_ArchiveRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowStaff_ArchiveRow);
                 return rowStaff_ArchiveRow;
@@ -1684,12 +1662,10 @@ namespace HR_Control {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public Staff_ArchiveRow FindByPassportSeriesPassportNumberPositionNameUnitName(string PassportSeries, string PassportNumber, string PositionName, string UnitName) {
+            public Staff_ArchiveRow FindByPassportSeriesPassportNumber(string PassportSeries, string PassportNumber) {
                 return ((Staff_ArchiveRow)(this.Rows.Find(new object[] {
                             PassportSeries,
-                            PassportNumber,
-                            PositionName,
-                            UnitName})));
+                            PassportNumber})));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1717,8 +1693,6 @@ namespace HR_Control {
                 this.columnBirthDate = base.Columns["BirthDate"];
                 this.columnEducation = base.Columns["Education"];
                 this.columnHireDate = base.Columns["HireDate"];
-                this.columnPositionName = base.Columns["PositionName"];
-                this.columnUnitName = base.Columns["UnitName"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1740,15 +1714,9 @@ namespace HR_Control {
                 base.Columns.Add(this.columnEducation);
                 this.columnHireDate = new global::System.Data.DataColumn("HireDate", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnHireDate);
-                this.columnPositionName = new global::System.Data.DataColumn("PositionName", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnPositionName);
-                this.columnUnitName = new global::System.Data.DataColumn("UnitName", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnUnitName);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnPassportSeries,
-                                this.columnPassportNumber,
-                                this.columnPositionName,
-                                this.columnUnitName}, true));
+                                this.columnPassportNumber}, true));
                 this.columnFirstName.AllowDBNull = false;
                 this.columnFirstName.MaxLength = 30;
                 this.columnSecondName.AllowDBNull = false;
@@ -1762,10 +1730,6 @@ namespace HR_Control {
                 this.columnEducation.AllowDBNull = false;
                 this.columnEducation.MaxLength = 50;
                 this.columnHireDate.AllowDBNull = false;
-                this.columnPositionName.AllowDBNull = false;
-                this.columnPositionName.MaxLength = 50;
-                this.columnUnitName.AllowDBNull = false;
-                this.columnUnitName.MaxLength = 50;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -3638,28 +3602,6 @@ namespace HR_Control {
                 }
                 set {
                     this[this.tableStaff_Archive.HireDateColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public string PositionName {
-                get {
-                    return ((string)(this[this.tableStaff_Archive.PositionNameColumn]));
-                }
-                set {
-                    this[this.tableStaff_Archive.PositionNameColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public string UnitName {
-                get {
-                    return ((string)(this[this.tableStaff_Archive.UnitNameColumn]));
-                }
-                set {
-                    this[this.tableStaff_Archive.UnitNameColumn] = value;
                 }
             }
             
@@ -5716,12 +5658,10 @@ SELECT FirstName, SecondName, Patronymic, PassportSeries, PassportNumber, BirthD
             tableMapping.ColumnMappings.Add("BirthDate", "BirthDate");
             tableMapping.ColumnMappings.Add("Education", "Education");
             tableMapping.ColumnMappings.Add("HireDate", "HireDate");
-            tableMapping.ColumnMappings.Add("PositionName", "PositionName");
-            tableMapping.ColumnMappings.Add("UnitName", "UnitName");
             this._adapter.TableMappings.Add(tableMapping);
             this._adapter.DeleteCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.DeleteCommand.Connection = this.Connection;
-            this._adapter.DeleteCommand.CommandText = @"DELETE FROM [dbo].[Staff_Archive] WHERE (([FirstName] = @Original_FirstName) AND ([SecondName] = @Original_SecondName) AND ((@IsNull_Patronymic = 1 AND [Patronymic] IS NULL) OR ([Patronymic] = @Original_Patronymic)) AND ([PassportSeries] = @Original_PassportSeries) AND ([PassportNumber] = @Original_PassportNumber) AND ([BirthDate] = @Original_BirthDate) AND ([Education] = @Original_Education) AND ([HireDate] = @Original_HireDate) AND ([PositionName] = @Original_PositionName) AND ([UnitName] = @Original_UnitName))";
+            this._adapter.DeleteCommand.CommandText = @"DELETE FROM [Staff_Archive] WHERE (([FirstName] = @Original_FirstName) AND ([SecondName] = @Original_SecondName) AND ((@IsNull_Patronymic = 1 AND [Patronymic] IS NULL) OR ([Patronymic] = @Original_Patronymic)) AND ([PassportSeries] = @Original_PassportSeries) AND ([PassportNumber] = @Original_PassportNumber) AND ([BirthDate] = @Original_BirthDate) AND ([Education] = @Original_Education) AND ([HireDate] = @Original_HireDate))";
             this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_FirstName", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "FirstName", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_SecondName", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "SecondName", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
@@ -5732,12 +5672,10 @@ SELECT FirstName, SecondName, Patronymic, PassportSeries, PassportNumber, BirthD
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_BirthDate", global::System.Data.SqlDbType.Date, 0, global::System.Data.ParameterDirection.Input, 0, 0, "BirthDate", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Education", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Education", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_HireDate", global::System.Data.SqlDbType.Date, 0, global::System.Data.ParameterDirection.Input, 0, 0, "HireDate", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_PositionName", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "PositionName", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_UnitName", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "UnitName", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = @"INSERT INTO [dbo].[Staff_Archive] ([FirstName], [SecondName], [Patronymic], [PassportSeries], [PassportNumber], [BirthDate], [Education], [HireDate], [PositionName], [UnitName]) VALUES (@FirstName, @SecondName, @Patronymic, @PassportSeries, @PassportNumber, @BirthDate, @Education, @HireDate, @PositionName, @UnitName);
-SELECT FirstName, SecondName, Patronymic, PassportSeries, PassportNumber, BirthDate, Education, HireDate, PositionName, UnitName FROM Staff_Archive WHERE (PassportNumber = @PassportNumber) AND (PassportSeries = @PassportSeries) AND (PositionName = @PositionName) AND (UnitName = @UnitName)";
+            this._adapter.InsertCommand.CommandText = @"INSERT INTO [Staff_Archive] ([FirstName], [SecondName], [Patronymic], [PassportSeries], [PassportNumber], [BirthDate], [Education], [HireDate]) VALUES (@FirstName, @SecondName, @Patronymic, @PassportSeries, @PassportNumber, @BirthDate, @Education, @HireDate);
+SELECT FirstName, SecondName, Patronymic, PassportSeries, PassportNumber, BirthDate, Education, HireDate FROM Staff_Archive WHERE (PassportNumber = @PassportNumber) AND (PassportSeries = @PassportSeries)";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@FirstName", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "FirstName", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@SecondName", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "SecondName", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -5747,12 +5685,10 @@ SELECT FirstName, SecondName, Patronymic, PassportSeries, PassportNumber, BirthD
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@BirthDate", global::System.Data.SqlDbType.Date, 0, global::System.Data.ParameterDirection.Input, 0, 0, "BirthDate", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Education", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Education", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@HireDate", global::System.Data.SqlDbType.Date, 0, global::System.Data.ParameterDirection.Input, 0, 0, "HireDate", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@PositionName", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "PositionName", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@UnitName", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "UnitName", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.UpdateCommand.Connection = this.Connection;
-            this._adapter.UpdateCommand.CommandText = @"UPDATE [dbo].[Staff_Archive] SET [FirstName] = @FirstName, [SecondName] = @SecondName, [Patronymic] = @Patronymic, [PassportSeries] = @PassportSeries, [PassportNumber] = @PassportNumber, [BirthDate] = @BirthDate, [Education] = @Education, [HireDate] = @HireDate, [PositionName] = @PositionName, [UnitName] = @UnitName WHERE (([FirstName] = @Original_FirstName) AND ([SecondName] = @Original_SecondName) AND ((@IsNull_Patronymic = 1 AND [Patronymic] IS NULL) OR ([Patronymic] = @Original_Patronymic)) AND ([PassportSeries] = @Original_PassportSeries) AND ([PassportNumber] = @Original_PassportNumber) AND ([BirthDate] = @Original_BirthDate) AND ([Education] = @Original_Education) AND ([HireDate] = @Original_HireDate) AND ([PositionName] = @Original_PositionName) AND ([UnitName] = @Original_UnitName));
-SELECT FirstName, SecondName, Patronymic, PassportSeries, PassportNumber, BirthDate, Education, HireDate, PositionName, UnitName FROM Staff_Archive WHERE (PassportNumber = @PassportNumber) AND (PassportSeries = @PassportSeries) AND (PositionName = @PositionName) AND (UnitName = @UnitName)";
+            this._adapter.UpdateCommand.CommandText = @"UPDATE [Staff_Archive] SET [FirstName] = @FirstName, [SecondName] = @SecondName, [Patronymic] = @Patronymic, [PassportSeries] = @PassportSeries, [PassportNumber] = @PassportNumber, [BirthDate] = @BirthDate, [Education] = @Education, [HireDate] = @HireDate WHERE (([FirstName] = @Original_FirstName) AND ([SecondName] = @Original_SecondName) AND ((@IsNull_Patronymic = 1 AND [Patronymic] IS NULL) OR ([Patronymic] = @Original_Patronymic)) AND ([PassportSeries] = @Original_PassportSeries) AND ([PassportNumber] = @Original_PassportNumber) AND ([BirthDate] = @Original_BirthDate) AND ([Education] = @Original_Education) AND ([HireDate] = @Original_HireDate));
+SELECT FirstName, SecondName, Patronymic, PassportSeries, PassportNumber, BirthDate, Education, HireDate FROM Staff_Archive WHERE (PassportNumber = @PassportNumber) AND (PassportSeries = @PassportSeries)";
             this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@FirstName", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "FirstName", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@SecondName", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "SecondName", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -5762,8 +5698,6 @@ SELECT FirstName, SecondName, Patronymic, PassportSeries, PassportNumber, BirthD
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@BirthDate", global::System.Data.SqlDbType.Date, 0, global::System.Data.ParameterDirection.Input, 0, 0, "BirthDate", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Education", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Education", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@HireDate", global::System.Data.SqlDbType.Date, 0, global::System.Data.ParameterDirection.Input, 0, 0, "HireDate", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@PositionName", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "PositionName", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@UnitName", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "UnitName", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_FirstName", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "FirstName", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_SecondName", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "SecondName", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Patronymic", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Patronymic", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
@@ -5773,8 +5707,6 @@ SELECT FirstName, SecondName, Patronymic, PassportSeries, PassportNumber, BirthD
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_BirthDate", global::System.Data.SqlDbType.Date, 0, global::System.Data.ParameterDirection.Input, 0, 0, "BirthDate", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Education", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Education", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_HireDate", global::System.Data.SqlDbType.Date, 0, global::System.Data.ParameterDirection.Input, 0, 0, "HireDate", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_PositionName", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "PositionName", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_UnitName", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "UnitName", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -5791,7 +5723,7 @@ SELECT FirstName, SecondName, Patronymic, PassportSeries, PassportNumber, BirthD
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
             this._commandCollection[0].CommandText = "SELECT FirstName, SecondName, Patronymic, PassportSeries, PassportNumber, BirthDa" +
-                "te, Education, HireDate, PositionName FROM Staff_Archive";
+                "te, Education, HireDate FROM Staff_Archive";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
         
@@ -5852,7 +5784,7 @@ SELECT FirstName, SecondName, Patronymic, PassportSeries, PassportNumber, BirthD
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Delete, true)]
-        public virtual int Delete(string Original_FirstName, string Original_SecondName, string Original_Patronymic, string Original_PassportSeries, string Original_PassportNumber, System.DateTime Original_BirthDate, string Original_Education, System.DateTime Original_HireDate, string Original_PositionName, string Original_UnitName) {
+        public virtual int Delete(string Original_FirstName, string Original_SecondName, string Original_Patronymic, string Original_PassportSeries, string Original_PassportNumber, System.DateTime Original_BirthDate, string Original_Education, System.DateTime Original_HireDate) {
             if ((Original_FirstName == null)) {
                 throw new global::System.ArgumentNullException("Original_FirstName");
             }
@@ -5893,18 +5825,6 @@ SELECT FirstName, SecondName, Patronymic, PassportSeries, PassportNumber, BirthD
                 this.Adapter.DeleteCommand.Parameters[7].Value = ((string)(Original_Education));
             }
             this.Adapter.DeleteCommand.Parameters[8].Value = ((System.DateTime)(Original_HireDate));
-            if ((Original_PositionName == null)) {
-                throw new global::System.ArgumentNullException("Original_PositionName");
-            }
-            else {
-                this.Adapter.DeleteCommand.Parameters[9].Value = ((string)(Original_PositionName));
-            }
-            if ((Original_UnitName == null)) {
-                throw new global::System.ArgumentNullException("Original_UnitName");
-            }
-            else {
-                this.Adapter.DeleteCommand.Parameters[10].Value = ((string)(Original_UnitName));
-            }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.DeleteCommand.Connection.State;
             if (((this.Adapter.DeleteCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -5925,7 +5845,7 @@ SELECT FirstName, SecondName, Patronymic, PassportSeries, PassportNumber, BirthD
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
-        public virtual int Insert(string FirstName, string SecondName, string Patronymic, string PassportSeries, string PassportNumber, System.DateTime BirthDate, string Education, System.DateTime HireDate, string PositionName, string UnitName) {
+        public virtual int Insert(string FirstName, string SecondName, string Patronymic, string PassportSeries, string PassportNumber, System.DateTime BirthDate, string Education, System.DateTime HireDate) {
             if ((FirstName == null)) {
                 throw new global::System.ArgumentNullException("FirstName");
             }
@@ -5964,18 +5884,6 @@ SELECT FirstName, SecondName, Patronymic, PassportSeries, PassportNumber, BirthD
                 this.Adapter.InsertCommand.Parameters[6].Value = ((string)(Education));
             }
             this.Adapter.InsertCommand.Parameters[7].Value = ((System.DateTime)(HireDate));
-            if ((PositionName == null)) {
-                throw new global::System.ArgumentNullException("PositionName");
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[8].Value = ((string)(PositionName));
-            }
-            if ((UnitName == null)) {
-                throw new global::System.ArgumentNullException("UnitName");
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[9].Value = ((string)(UnitName));
-            }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
             if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -6005,8 +5913,6 @@ SELECT FirstName, SecondName, Patronymic, PassportSeries, PassportNumber, BirthD
                     System.DateTime BirthDate, 
                     string Education, 
                     System.DateTime HireDate, 
-                    string PositionName, 
-                    string UnitName, 
                     string Original_FirstName, 
                     string Original_SecondName, 
                     string Original_Patronymic, 
@@ -6014,9 +5920,7 @@ SELECT FirstName, SecondName, Patronymic, PassportSeries, PassportNumber, BirthD
                     string Original_PassportNumber, 
                     System.DateTime Original_BirthDate, 
                     string Original_Education, 
-                    System.DateTime Original_HireDate, 
-                    string Original_PositionName, 
-                    string Original_UnitName) {
+                    System.DateTime Original_HireDate) {
             if ((FirstName == null)) {
                 throw new global::System.ArgumentNullException("FirstName");
             }
@@ -6055,70 +5959,46 @@ SELECT FirstName, SecondName, Patronymic, PassportSeries, PassportNumber, BirthD
                 this.Adapter.UpdateCommand.Parameters[6].Value = ((string)(Education));
             }
             this.Adapter.UpdateCommand.Parameters[7].Value = ((System.DateTime)(HireDate));
-            if ((PositionName == null)) {
-                throw new global::System.ArgumentNullException("PositionName");
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[8].Value = ((string)(PositionName));
-            }
-            if ((UnitName == null)) {
-                throw new global::System.ArgumentNullException("UnitName");
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[9].Value = ((string)(UnitName));
-            }
             if ((Original_FirstName == null)) {
                 throw new global::System.ArgumentNullException("Original_FirstName");
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[10].Value = ((string)(Original_FirstName));
+                this.Adapter.UpdateCommand.Parameters[8].Value = ((string)(Original_FirstName));
             }
             if ((Original_SecondName == null)) {
                 throw new global::System.ArgumentNullException("Original_SecondName");
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[11].Value = ((string)(Original_SecondName));
+                this.Adapter.UpdateCommand.Parameters[9].Value = ((string)(Original_SecondName));
             }
             if ((Original_Patronymic == null)) {
-                this.Adapter.UpdateCommand.Parameters[12].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[13].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[10].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[11].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[12].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[13].Value = ((string)(Original_Patronymic));
+                this.Adapter.UpdateCommand.Parameters[10].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[11].Value = ((string)(Original_Patronymic));
             }
             if ((Original_PassportSeries == null)) {
                 throw new global::System.ArgumentNullException("Original_PassportSeries");
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[14].Value = ((string)(Original_PassportSeries));
+                this.Adapter.UpdateCommand.Parameters[12].Value = ((string)(Original_PassportSeries));
             }
             if ((Original_PassportNumber == null)) {
                 throw new global::System.ArgumentNullException("Original_PassportNumber");
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[15].Value = ((string)(Original_PassportNumber));
+                this.Adapter.UpdateCommand.Parameters[13].Value = ((string)(Original_PassportNumber));
             }
-            this.Adapter.UpdateCommand.Parameters[16].Value = ((System.DateTime)(Original_BirthDate));
+            this.Adapter.UpdateCommand.Parameters[14].Value = ((System.DateTime)(Original_BirthDate));
             if ((Original_Education == null)) {
                 throw new global::System.ArgumentNullException("Original_Education");
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[17].Value = ((string)(Original_Education));
+                this.Adapter.UpdateCommand.Parameters[15].Value = ((string)(Original_Education));
             }
-            this.Adapter.UpdateCommand.Parameters[18].Value = ((System.DateTime)(Original_HireDate));
-            if ((Original_PositionName == null)) {
-                throw new global::System.ArgumentNullException("Original_PositionName");
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[19].Value = ((string)(Original_PositionName));
-            }
-            if ((Original_UnitName == null)) {
-                throw new global::System.ArgumentNullException("Original_UnitName");
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[20].Value = ((string)(Original_UnitName));
-            }
+            this.Adapter.UpdateCommand.Parameters[16].Value = ((System.DateTime)(Original_HireDate));
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.UpdateCommand.Connection.State;
             if (((this.Adapter.UpdateCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -6139,24 +6019,8 @@ SELECT FirstName, SecondName, Patronymic, PassportSeries, PassportNumber, BirthD
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(
-                    string FirstName, 
-                    string SecondName, 
-                    string Patronymic, 
-                    System.DateTime BirthDate, 
-                    string Education, 
-                    System.DateTime HireDate, 
-                    string Original_FirstName, 
-                    string Original_SecondName, 
-                    string Original_Patronymic, 
-                    string Original_PassportSeries, 
-                    string Original_PassportNumber, 
-                    System.DateTime Original_BirthDate, 
-                    string Original_Education, 
-                    System.DateTime Original_HireDate, 
-                    string Original_PositionName, 
-                    string Original_UnitName) {
-            return this.Update(FirstName, SecondName, Patronymic, Original_PassportSeries, Original_PassportNumber, BirthDate, Education, HireDate, Original_PositionName, Original_UnitName, Original_FirstName, Original_SecondName, Original_Patronymic, Original_PassportSeries, Original_PassportNumber, Original_BirthDate, Original_Education, Original_HireDate, Original_PositionName, Original_UnitName);
+        public virtual int Update(string FirstName, string SecondName, string Patronymic, System.DateTime BirthDate, string Education, System.DateTime HireDate, string Original_FirstName, string Original_SecondName, string Original_Patronymic, string Original_PassportSeries, string Original_PassportNumber, System.DateTime Original_BirthDate, string Original_Education, System.DateTime Original_HireDate) {
+            return this.Update(FirstName, SecondName, Patronymic, Original_PassportSeries, Original_PassportNumber, BirthDate, Education, HireDate, Original_FirstName, Original_SecondName, Original_Patronymic, Original_PassportSeries, Original_PassportNumber, Original_BirthDate, Original_Education, Original_HireDate);
         }
     }
     

@@ -1,0 +1,65 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<asmv1:assembly xsi:schemaLocation="urn:schemas-microsoft-com:asm.v1 assembly.adaptive.xsd" manifestVersion="1.0" xmlns:asmv1="urn:schemas-microsoft-com:asm.v1" xmlns="urn:schemas-microsoft-com:asm.v2" xmlns:asmv2="urn:schemas-microsoft-com:asm.v2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:co.v1="urn:schemas-microsoft-com:clickonce.v1" xmlns:asmv3="urn:schemas-microsoft-com:asm.v3" xmlns:dsig="http://www.w3.org/2000/09/xmldsig#" xmlns:co.v2="urn:schemas-microsoft-com:clickonce.v2">
+  <asmv1:assemblyIdentity name="HR Control.exe" version="1.0.0.1" publicKeyToken="26677a0083773ef1" language="neutral" processorArchitecture="msil" type="win32" />
+  <application />
+  <entryPoint>
+    <assemblyIdentity name="HR Control" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
+    <commandLine file="HR Control.exe" parameters="" />
+  </entryPoint>
+  <trustInfo>
+    <security>
+      <applicationRequestMinimum>
+        <PermissionSet Unrestricted="true" ID="Custom" SameSite="site" />
+        <defaultAssemblyRequest permissionSetReference="Custom" />
+      </applicationRequestMinimum>
+      <requestedPrivileges xmlns="urn:schemas-microsoft-com:asm.v3">
+        <!--
+          UAC Manifest Options
+          If you want to change the Windows User Account Control level replace the
+          requestedExecutionLevel node with one of the following.
+
+        <requestedExecutionLevel  level="asInvoker" uiAccess="false" />
+        <requestedExecutionLevel  level="requireAdministrator" uiAccess="false" />
+        <requestedExecutionLevel  level="highestAvailable" uiAccess="false" />
+
+         If you want to utilize File and Registry Virtualization for backward
+         compatibility then delete the requestedExecutionLevel node.
+    -->
+        <requestedExecutionLevel level="asInvoker" uiAccess="false" />
+      </requestedPrivileges>
+    </security>
+  </trustInfo>
+  <dependency>
+    <dependentOS>
+      <osVersionInfo>
+        <os majorVersion="5" minorVersion="1" buildNumber="2600" servicePackMajor="0" />
+      </osVersionInfo>
+    </dependentOS>
+  </dependency>
+  <dependency>
+    <dependentAssembly dependencyType="preRequisite" allowDelayedBinding="true">
+      <assemblyIdentity name="Microsoft.Windows.CommonLanguageRuntime" version="4.0.30319.0" />
+    </dependentAssembly>
+  </dependency>
+  <dependency>
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="HR Control.exe" size="456664">
+      <assemblyIdentity name="HR Control" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
+      <hash>
+        <dsig:Transforms>
+          <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+        </dsig:Transforms>
+        <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+        <dsig:DigestValue>va8N1fXiagFdl5jgK5Sohu2E7Sny414UNxXS4Lw/hMA=</dsig:DigestValue>
+      </hash>
+    </dependentAssembly>
+  </dependency>
+  <file name="HR Control.exe.config" size="518">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>LvDk0g0dX7vL8OZUgkEJzF8rJTN1pkCpZv1TNfX+qA4=</dsig:DigestValue>
+    </hash>
+  </file>
+<publisherIdentity name="CN=NORDMAN-COMP\NordMan" issuerKeyHash="d7e03b70aebe521714fb7b72fcef836ad0d7042e" /><Signature Id="StrongNameSignature" xmlns="http://www.w3.org/2000/09/xmldsig#"><SignedInfo><CanonicalizationMethod Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#" /><SignatureMethod Algorithm="http://www.w3.org/2000/09/xmldsig#rsa-sha256" /><Reference URI=""><Transforms><Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature" /><Transform Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#" /></Transforms><DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" /><DigestValue>Iv1CYVoJylzzZonhJw67TUexWQvsACiV0KuFDCfgG6g=</DigestValue></Reference></SignedInfo><SignatureValue>bNUVqwWRF/P2lpkN7LuGn/zCyDtsp5HUPVaG8j8gmGSu2tFXIdfoXypfleE0s1X/2TQuZiLsQS8c88ikEBy8OEldvH4aFgvJEbMmGUmWHVeLpbOXYAxz98Njri4gXaq4MrHg9/opGTG53qKWUYPgh79Wd5Qiyyz1GIS+A2HkIGg=</SignatureValue><KeyInfo Id="StrongNameKeyInfo"><KeyValue><RSAKeyValue><Modulus>pRlX4xyBtfTrJGx4oCyMYtw2U+3yPah9ejQ6IPGMddSRUw7ZnMS8lQJsjk8hxltoqnhdTVMq844aL6yR2RVoZQUCVbQ6jKMmZR4AvLcIcw9VVr7JWi0SnjggftF1uJISq8/awiLC1Eg8Ig8sY6phq+zjV+Hsp1e4Yk/F1kYgUhk=</Modulus><Exponent>AQAB</Exponent></RSAKeyValue></KeyValue><msrel:RelData xmlns:msrel="http://schemas.microsoft.com/windows/rel/2005/reldata"><r:license xmlns:r="urn:mpeg:mpeg21:2003:01-REL-R-NS" xmlns:as="http://schemas.microsoft.com/windows/pki/2005/Authenticode"><r:grant><as:ManifestInformation Hash="a81be0270c85abd0952800ec0b59b1474dbb0e27e18966f35cca095a6142fd22" Description="" Url=""><as:assemblyIdentity name="HR Control.exe" version="1.0.0.1" publicKeyToken="26677a0083773ef1" language="neutral" processorArchitecture="msil" type="win32" /></as:ManifestInformation><as:SignedBy /><as:AuthenticodePublisher><as:X509SubjectName>CN=NORDMAN-COMP\NordMan</as:X509SubjectName></as:AuthenticodePublisher></r:grant><r:issuer><Signature Id="AuthenticodeSignature" xmlns="http://www.w3.org/2000/09/xmldsig#"><SignedInfo><CanonicalizationMethod Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#" /><SignatureMethod Algorithm="http://www.w3.org/2000/09/xmldsig#rsa-sha256" /><Reference URI=""><Transforms><Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature" /><Transform Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#" /></Transforms><DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" /><DigestValue>2rpnu9iJQUYSCqItNFwWswg85wIoOwMkkPaIW/trZIw=</DigestValue></Reference></SignedInfo><SignatureValue>UwV3SjoqIoH6oPanT5z3FuV0dC4E8oZjTs2W0QqtC2inTcQi4D+zX1YVteF4fHvmqDY6VkALnzU+uSE7Oujo9DmbVk6/klxyn071KVrAKNCnJLfxQncpLPNPTKRHOLjGkXG+FpYvwsJfD/g9aksLrQzD/owhotw7Yk6DRnMXiBk=</SignatureValue><KeyInfo><KeyValue><RSAKeyValue><Modulus>pRlX4xyBtfTrJGx4oCyMYtw2U+3yPah9ejQ6IPGMddSRUw7ZnMS8lQJsjk8hxltoqnhdTVMq844aL6yR2RVoZQUCVbQ6jKMmZR4AvLcIcw9VVr7JWi0SnjggftF1uJISq8/awiLC1Eg8Ig8sY6phq+zjV+Hsp1e4Yk/F1kYgUhk=</Modulus><Exponent>AQAB</Exponent></RSAKeyValue></KeyValue><X509Data><X509Certificate>MIIB6TCCAVKgAwIBAgIQfxl/7Th66o1JSXUhACnJLTANBgkqhkiG9w0BAQsFADAzMTEwLwYDVQQDHigATgBPAFIARABNAEEATgAtAEMATwBNAFAAXABOAG8AcgBkAE0AYQBuMB4XDTIyMDQxODE1MTYyMVoXDTIzMDQxODIxMTYyMVowMzExMC8GA1UEAx4oAE4ATwBSAEQATQBBAE4ALQBDAE8ATQBQAFwATgBvAHIAZABNAGEAbjCBnzANBgkqhkiG9w0BAQEFAAOBjQAwgYkCgYEApRlX4xyBtfTrJGx4oCyMYtw2U+3yPah9ejQ6IPGMddSRUw7ZnMS8lQJsjk8hxltoqnhdTVMq844aL6yR2RVoZQUCVbQ6jKMmZR4AvLcIcw9VVr7JWi0SnjggftF1uJISq8/awiLC1Eg8Ig8sY6phq+zjV+Hsp1e4Yk/F1kYgUhkCAwEAATANBgkqhkiG9w0BAQsFAAOBgQAOu/ll5XDzxTeH1NJ8vbAX8fpCeZR49/MJt5MQrYi6/+jU7UHRhQkLHLf3AXOLXjA64nj9N5VuAYpejKhQEscEt1zvkSQlRqB0VEUCWMMAMyz/q24/GyZMgJVesEiI2ad4NHs/lo8Y/c9LqH0J3PGeKNfOR/PI/JnsJaQe5WorLA==</X509Certificate></X509Data></KeyInfo></Signature></r:issuer></r:license></msrel:RelData></KeyInfo></Signature></asmv1:assembly>
